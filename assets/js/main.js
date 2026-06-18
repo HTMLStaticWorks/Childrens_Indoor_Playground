@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSAMDownloader();
   initContactFormValidation();
   initBackToTop();
+  initAccordion();
 });
 
 /* ==========================================================================
@@ -447,6 +448,36 @@ function initContactFormValidation() {
       input.classList.remove('input-error');
       const errSpan = input.parentNode.querySelector('.error-msg');
       if (errSpan) errSpan.remove();
+    });
+  });
+}
+
+/* ==========================================================================
+   8. Reusable Accordion (FAQ Dropdown) Logic
+   ========================================================================== */
+function initAccordion() {
+  const headers = document.querySelectorAll('.accordion-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const isActive = item.classList.contains('active');
+
+      // Find the parent accordion container to isolate active states per accordion
+      const accordion = item.closest('.accordion');
+      if (accordion) {
+        accordion.querySelectorAll('.accordion-item').forEach(otherItem => {
+          otherItem.classList.remove('active');
+        });
+      } else {
+        document.querySelectorAll('.accordion-item').forEach(otherItem => {
+          otherItem.classList.remove('active');
+        });
+      }
+
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+      }
     });
   });
 }

@@ -30,8 +30,8 @@
   /* Warm Cream Background */
   --bg-card: #ffffff;
   --bg-header: rgba(253, 250, 246, 0.9);
-  --bg-footer: #5b21b6;
-  /* Royal Purple Footer */
+  --bg-footer: var(--bg-header);
+  /* Same background as header */
 
   --text-color: #4b5563;
   /* Slate 600 equivalent */
@@ -39,8 +39,8 @@
   /* Slate 500 equivalent */
   --text-heading: #1e1b4b;
   /* Deep Indigo (high-contrast title) */
-  --text-footer: #e9d5ff;
-  /* Lavender for footer text */
+  --text-footer: var(--text-color);
+  /* Same text color as body */
   --text-light: #ffffff;
 
   --border-color: #e5e7eb;
@@ -485,7 +485,20 @@ textarea.form-input {
 .accordion-icon {
   font-size: 0.9rem;
   color: var(--text-muted);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.accordion-header:hover h4 {
+  color: var(--accent-color);
+}
+
+.accordion-header:hover .accordion-icon {
+  color: var(--accent-color);
+  transform: scale(1.2);
+}
+
+.accordion-item.active .accordion-header:hover .accordion-icon {
+  transform: rotate(180deg) scale(1.2);
 }
 
 .accordion-content {
@@ -691,7 +704,11 @@ textarea.form-input {
   color: var(--text-footer);
   padding: 80px 0 40px 0;
   margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-color);
+}
+
+.site-footer .logo-text {
+  color: var(--text-heading);
 }
 
 .footer-top {
@@ -702,7 +719,7 @@ textarea.form-input {
 }
 
 .footer-brand h3 {
-  color: var(--text-light);
+  color: var(--text-heading);
   margin-bottom: 16px;
 }
 
@@ -781,7 +798,7 @@ textarea.form-input {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-color);
   padding-top: 30px;
   display: flex;
   justify-content: space-between;
@@ -789,6 +806,10 @@ textarea.form-input {
   flex-wrap: wrap;
   gap: 20px;
   font-size: 0.9rem;
+}
+
+.footer-bottom a:hover {
+  color: var(--accent-color);
 }
 
 .stats-grid {
@@ -1679,7 +1700,7 @@ textarea.form-input {
 /* Fix for footer text overlapping with back-to-top arrow and reduce bg color in 1024px and 768px */
 @media (max-width: 1024px) and (min-width: 768px) {
   .site-footer {
-    background: rgba(91, 33, 182, 0.95);
+    background: var(--bg-footer);
   }
   
   .footer-bottom {

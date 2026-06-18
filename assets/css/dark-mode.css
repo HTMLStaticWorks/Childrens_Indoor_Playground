@@ -14,7 +14,7 @@ html[data-theme="dark"] {
   --bg-color: #0f0920;            /* Premium deep midnight purple */
   --bg-card: #1b1437;             /* Dark play card background */
   --bg-header: rgba(15, 9, 32, 0.85);
-  --bg-footer: #0a0618;
+  --bg-footer: var(--bg-header);
   
   --text-color: #d1d5db;          
   --text-muted: #9ca3af;          
@@ -120,4 +120,3 @@ html[data-theme="dark"] .nav-link:hover,
 html[data-theme="dark"] .nav-link.active {
   color: var(--text-heading); /* White */
 }
-
