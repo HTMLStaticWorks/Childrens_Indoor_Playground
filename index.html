@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JungleJamboree | Premium Children's Indoor Playground & Party Hub</title>
+  <meta name="description"
+    content="Book entry passes, schedule themed birthday parties, purchase monthly soft play memberships, and access our parent-friendly online checkout.">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo-container" onclick="window.location.href='index.html'">
+        <div class="logo-icon"><i class="fas fa-child"></i></div>
+        <span class="logo-text">JungleJamboree</span>
+      </div>
+
+      <!-- Hamburger menu toggle -->
+      <button class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Center navigation menu options -->
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="pages/home2.html" class="nav-link">Home 2</a></li>
+          <li><a href="pages/about.html" class="nav-link">About Us</a></li>
+          <li><a href="pages/services.html" class="nav-link">Play Packages</a></li>
+          <li><a href="pages/categories.html" class="nav-link">Attractions</a></li>
+          <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+          <!-- Dashboard option in the center-right side -->
+          <li><a href="pages/dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+        <!-- Displayed in Mobile Hamburger Menu only -->
+        <div class="mobile-menu-footer">
+          <div class="footer-actions-row">
+            <button class="rtl-toggle">RTL</button>
+            <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+          </div>
+          <a href="pages/login.html" class="btn btn-primary">Sign In</a>
+        </div>
+      </nav>
+
+      <!-- Right side headers elements (RTL, Theme, and Login buttons) -->
+      <div class="header-actions">
+        <button class="rtl-toggle" aria-label="Toggle Right to Left">RTL</button>
+        <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <a href="pages/login.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="margin-top: var(--header-height);">
+
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="section hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge"></i> Premium Soft Play Kingdom</span>
+          <h1 class="hero-title">Unleash the Joy of <span>Active Play</span> & Discovery!</h1>
+          <p class="hero-subtitle">JungleJamboree drives repeat family visits with secure multi-level play areas, customizable birthday party packages, and parent-friendly online pass checkouts.</p>
+          <div class="hero-buttons">
+            <a href="#calculator" class="btn btn-primary">Pass & Party Calculator</a>
+            <a href="pages/services.html" class="btn btn-secondary">Explore Play Packages</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="serverless-graphic" style="border-color: var(--secondary-color);">
+            <div class="graphic-header" style="background: rgba(236, 72, 153, 0.1);">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span class="graphic-title">playground-hours-today.json</span>
+            </div>
+            <div class="graphic-content" style="font-family: var(--font-primary); font-size: 0.95rem; line-height: 1.8; color: var(--text-color);">
+              <strong style="color: var(--secondary-color);"><i class="fas fa-clock"></i> Open Daily:</strong> 9:00 AM - 8:00 PM<br>
+              <strong style="color: var(--secondary-color);"><i class="fas fa-baby"></i> Toddler Time:</strong> Weekdays 9:00 - 11:30 AM<br>
+              <strong style="color: var(--secondary-color);"><i class="fas fa-pump-medical"></i> Sanitization Cycles:</strong> 1:30 PM & 5:00 PM<br>
+              <strong style="color: var(--secondary-color);"><i class="fas fa-wifi"></i> Parent Lounge:</strong> Free Wi-Fi, Fresh Coffee & Snacks<br>
+              <strong style="color: var(--secondary-color);"><i class="fas fa-socks"></i> Policy:</strong> Play socks required for children & parents
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PLAY ZONES & HIGHLIGHTS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Magical Play Zones</h2>
+          <p>Carefully engineered play environments that encourage exploration, coordinate sensory learning, and keep kids active.</p>
+        </div>
+        <div class="card-grid">
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtf-sHzc7tQrRb08Qn54SI6MXl8ztIAPWaHFf3Rw-_1vZz1D0zzzJoYfJh&s=10"
+                alt="Toddler Play Zone" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-color);"><i class="fas fa-shapes"></i></div>
+            <h3 class="card-title">Toddler Jungle</h3>
+            <p class="card-description">A sensory-rich soft play zone dedicated for infants and toddlers up to age 3, with padded obstacles and mini slides.</p>
+            <a href="pages/services.html" class="btn btn-secondary">Explore Zone</a>
+          </div>
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJMQMyd909tIozCAqW05hpKII_D1S47MFSdECOJf-rrjKVa0_0BUz0pzk&s=10"
+                alt="Adventure soft play zone" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(236, 72, 153, 0.1); color: var(--secondary-color);"><i class="fas fa-cubes"></i></div>
+            <h3 class="card-title">Adventure Arena</h3>
+            <p class="card-description">A massive multi-level jungle gym featuring tube crawl ways, rope bridges, giant speed slides, and obstacle runs.</p>
+            <a href="pages/services.html" class="btn btn-secondary">Explore Zone</a>
+          </div>
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://static.vecteezy.com/system/resources/previews/005/854/943/large_2x/child-playing-in-colorful-ball-pit-day-care-indoor-playground-balls-pool-for-children-kindergarten-or-preschool-play-room-photo.jpg"
+                alt="Ball pit play zone" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(91, 33, 182, 0.1); color: var(--primary-color);"><i class="fas fa-circle-dot"></i></div>
+            <h3 class="card-title">Ball Pit Ocean</h3>
+            <p class="card-description">Dive into thousands of clean, colorful balls with interactive projection walls, air shooters, and vacuum ball runs.</p>
+            <a href="pages/services.html" class="btn btn-secondary">Explore Zone</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PLAYGROUND PASS & PARTY PLANNER CALCULATOR -->
+    <section class="section" id="calculator"
+      style="background: rgba(236, 72, 153, 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Playground Pass & Party Calculator</h2>
+          <p>Estimate entry rates, monthly club packages, or custom school trip rates instantly by selecting your details below.</p>
+        </div>
+
+        <div class="hero-grid" style="gap: 48px; align-items: stretch;">
+          <!-- Control Sliders -->
+          <div class="premium-card" style="text-align: left; align-items: stretch; justify-content: start;">
+            <h3 class="card-title" style="align-self: center; margin-bottom: 30px;"><i class="fas fa-sliders-h"
+                style="color: var(--accent-color);"></i> Adjust Play Parameters</h3>
+
+            <div style="margin-bottom: 24px;" class="calc-slider-header">
+              <div style="display: flex; justify-content: space-between; font-weight: 500; margin-bottom: 8px;">
+                <label for="calc-memory">Number of Children</label>
+                <span style="color: var(--accent-color);"><span id="val-memory">2</span> Kids</span>
+              </div>
+              <input type="range" id="calc-memory" min="1" max="10" step="1" value="2"
+                style="width: 100%; height: 6px; border-radius: var(--radius-full); accent-color: var(--accent-color);">
+            </div>
+
+            <div style="margin-bottom: 24px;" class="calc-slider-header">
+              <div style="display: flex; justify-content: space-between; font-weight: 500; margin-bottom: 8px;">
+                <label for="calc-duration">Play Duration</label>
+                <span style="color: var(--accent-color);"><span id="val-duration">2</span> hrs</span>
+              </div>
+              <input type="range" id="calc-duration" min="2" max="8" step="1" value="2"
+                style="width: 100%; height: 6px; border-radius: var(--radius-full); accent-color: var(--accent-color);">
+            </div>
+
+            <div style="margin-bottom: 24px;" class="calc-slider-header">
+              <div style="display: flex; justify-content: space-between; font-weight: 500; margin-bottom: 8px;">
+                <label for="calc-invocations">Optional Upgrades</label>
+                <span style="color: var(--accent-color);"><span id="val-invocations">None</span></span>
+              </div>
+              <input type="range" id="calc-invocations" min="0" max="2" step="1" value="0"
+                style="width: 100%; height: 6px; border-radius: var(--radius-full); accent-color: var(--accent-color);">
+            </div>
+          </div>
+
+          <!-- Price comparison outputs -->
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="premium-card"
+              style="padding: 20px; flex-direction: row; justify-content: space-between; text-align: left; align-items: center; border-left: 4px solid var(--primary-color);">
+              <div>
+                <h4 style="margin: 0;"><i class="fas fa-ticket-alt" style="color: var(--primary-color);"></i> Single Entry Passes</h4>
+                <div
+                  style="width: 100px; background: var(--border-color); height: 8px; border-radius: 4px; margin-top: 8px; overflow: hidden;">
+                  <div id="bar-aws" style="background: var(--primary-color); height: 100%; width: 40%; transition: width 0.3s ease;">
+                  </div>
+                </div>
+              </div>
+              <span id="cost-aws" style="font-size: 1.75rem; font-weight: 580; color: var(--text-heading);">$0.00</span>
+            </div>
+
+            <div class="premium-card"
+              style="padding: 20px; flex-direction: row; justify-content: space-between; text-align: left; align-items: center; border-left: 4px solid var(--secondary-color);">
+              <div>
+                <h4 style="margin: 0;"><i class="fas fa-calendar-alt" style="color: var(--secondary-color);"></i> Monthly Adventure Club</h4>
+                <div
+                  style="width: 100px; background: var(--border-color); height: 8px; border-radius: 4px; margin-top: 8px; overflow: hidden;">
+                  <div id="bar-gcp" style="background: var(--secondary-color); height: 100%; width: 50%; transition: width 0.3s ease;">
+                  </div>
+                </div>
+              </div>
+              <span id="cost-gcp" style="font-size: 1.75rem; font-weight: 580; color: var(--text-heading);">$0.00</span>
+            </div>
+
+            <div class="premium-card"
+              style="padding: 20px; flex-direction: row; justify-content: space-between; text-align: left; align-items: center; border-left: 4px solid var(--accent-color);">
+              <div>
+                <h4 style="margin: 0;"><i class="fas fa-crown" style="color: var(--accent-color);"></i> Annual Jamboree Pass</h4>
+                <div
+                  style="width: 100px; background: var(--border-color); height: 8px; border-radius: 4px; margin-top: 8px; overflow: hidden;">
+                  <div id="bar-azure"
+                    style="background: var(--accent-color); height: 100%; width: 30%; transition: width 0.3s ease;"></div>
+                </div>
+              </div>
+              <span id="cost-azure"
+                style="font-size: 1.75rem; font-weight: 580; color: var(--text-heading);">$0.00</span>
+            </div>
+
+            <div class="premium-card"
+              style="padding: 20px; flex-direction: row; justify-content: space-between; text-align: left; align-items: center; border-left: 4px solid var(--info);">
+              <div>
+                <h4 style="margin: 0;"><i class="fas fa-users" style="color: var(--info);"></i> Group / School Event Pack</h4>
+                <div
+                  style="width: 100px; background: var(--border-color); height: 8px; border-radius: 4px; margin-top: 8px; overflow: hidden;">
+                  <div id="bar-cloudflare"
+                    style="background: var(--info); height: 100%; width: 10%; transition: width 0.3s ease;"></div>
+                </div>
+              </div>
+              <span id="cost-cloudflare"
+                style="font-size: 1.75rem; font-weight: 580; color: var(--text-heading);">$0.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: PLAYGROUND RESOURCE CENTER -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Playground Resource Center</h2>
+          <p>Get ready-to-print birthday party invitations, review and sign safety liability waivers, and download membership benefits guides.</p>
+        </div>
+
+        <div class="card-grid">
+          <!-- Card 1 -->
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6VsBT9zdUP3W2_Uh83TJb7mffvwvbo6xhN6d8NgPmAx58YTb6Lf68Cwvm&s=10"
+                alt="Birthday invitations decor" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(236, 72, 153, 0.1); color: var(--secondary-color);"><i class="fas fa-envelope-open-text"></i></div>
+            <h3 class="card-title">Printable Party Invites</h3>
+            <p class="card-description">Ready-made, beautifully themed birthday party invitation templates to print and send to your guests.</p>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px; width: 100%;">
+              <button class="btn btn-primary download-sam-btn" data-design="api-gateway-lambda">
+                <i class="fas fa-download"></i> Get Invitation PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://www.eurokidsindia.com/blog/wp-content/uploads/2023/06/safe-smart-play.jpg"
+                alt="Liability Safety Waiver signature" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(91, 33, 182, 0.1); color: var(--primary-color);"><i class="fas fa-file-contract"></i></div>
+            <h3 class="card-title">Play Safety Waiver</h3>
+            <p class="card-description">Fill out and sign our safety waiver form prior to check-in to unlock immediate entry at the gates.</p>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px; width: 100%;">
+              <button class="btn btn-primary download-sam-btn" data-design="sqs-lambda-db">
+                <i class="fas fa-download"></i> Get Waiver Form PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://www.parents.com/thmb/dK1zL7z3TzJaWbyzxRDjtucA0xU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/playdatebusinesscards-f667d8f5dce04e0f91d9cd43ea288330.jpg"
+                alt="Kids playing together" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-color);"><i class="fas fa-crown"></i></div>
+            <h3 class="card-title">Membership Guide</h3>
+            <p class="card-description">Review monthly guest benefits, birthday booking discounts, and parent cafe loyalty program perks.</p>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px; width: 100%;">
+              <button class="btn btn-primary download-sam-btn" data-design="s3-trigger">
+                <i class="fas fa-download"></i> Get Benefits PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: WAIT TIME & CAPACITY SLOT OPTIMIZER -->
+    <section class="section"
+      style="background: rgba(245, 158, 11, 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Capacity & Wait Time Simulator</h2>
+          <p>Review real-time wait times and crowding levels based on check-in hour selections and pre-booked VIP passes.</p>
+        </div>
+
+        <div class="hero-grid" style="gap: 48px; align-items: stretch;">
+          <!-- Configuration -->
+          <div class="premium-card" style="text-align: left; align-items: stretch; justify-content: start;">
+            <h3 class="card-title" style="align-self: center; margin-bottom: 30px;"><i class="fas fa-hourglass-half"
+                style="color: var(--accent-color);"></i> Settings Panel</h3>
+
+            <div style="margin-bottom: 24px;">
+              <label for="opt-runtime" style="font-weight: 500; display: block; margin-bottom: 8px;">Check-In Time Slot</label>
+              <select id="opt-runtime"
+                style="width: 100%; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-heading); font-family: var(--font-primary);">
+                <option value="nodejs">Weekday Morning (Quiet Play)</option>
+                <option value="python">Weekday Afternoon (Moderate Play)</option>
+                <option value="go">Weekend Morning (Active/Busy)</option>
+                <option value="rust">Weekend Afternoon (Very Crowded)</option>
+                <option value="java">Holidays / Rainy Days (Peak Capacity)</option>
+              </select>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+              <div>
+                <label for="opt-vpc" style="font-weight: 500; display: block;">Include Deep Sanitization Cycle</label>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Simulates clean and safety checks wait impacts</span>
+              </div>
+              <input type="checkbox" id="opt-vpc" style="width: 24px; height: 24px; accent-color: var(--accent-color);">
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <label for="opt-provision" style="font-weight: 500; display: block;">Priority VIP Pre-booked Passes</label>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Pre-registered parents skip standard entrance lines</span>
+              </div>
+              <input type="checkbox" id="opt-provision"
+                style="width: 24px; height: 24px; accent-color: var(--accent-color);">
+            </div>
+          </div>
+
+          <!-- Response Visual representation -->
+          <div class="premium-card" style="justify-content: space-between;">
+            <div style="width: 100%;">
+              <span class="badge" style="background: rgba(16, 185, 129, 0.12); color: var(--success);">Monitor Active</span>
+              <h3 style="margin-top: 12px; font-size: 2rem;">Estimated Gate Wait Time</h3>
+              <div id="cold-start-time"
+                style="font-size: 4rem; font-weight: 580; color: var(--text-heading); margin: 20px 0;">5 mins</div>
+
+              <div
+                style="width: 100%; background: var(--border-color); height: 16px; border-radius: 8px; overflow: hidden; margin-bottom: 24px;">
+                <div id="timeline-bar"
+                  style="background: var(--success); height: 100%; width: 20%; transition: all 0.4s ease;"></div>
+              </div>
+            </div>
+
+            <div id="opt-recommendation"
+              style="background: rgba(236, 72, 153, 0.05); border: 1px solid rgba(236, 72, 153, 0.1); border-radius: var(--radius-md); padding: 20px; text-align: left; font-size: 0.95rem; line-height: 1.6; color: var(--text-color);">
+              <!-- Javascript injects recommendations -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CLIENT CONSULTATION CTA & LOGOS -->
+    <section class="section">
+      <div class="container" style="text-align: center;">
+        <div class="section-header">
+          <h2>Ready to Book a Jamboree Celebration?</h2>
+          <p>Schedule a private themed party room for your child's next birthday! We provide host coordinators, café meals, cleanups, and entry passes.</p>
+        </div>
+
+        <div class="btn-group" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 60px;">
+          <a href="pages/contact.html" class="btn btn-primary"><i class="fas fa-calendar-alt"></i> Book a Party Room</a>
+          <a href="pages/dashboard.html" class="btn btn-secondary"><i class="fas fa-chart-line"></i> Parent Dashboard</a>
+        </div>
+
+        <p
+          style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; font-weight: 500; color: var(--text-muted); margin-bottom: 30px;">
+          Fun & Safe Partnerships & Safety Memberships</p>
+        <div
+          style="display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap; opacity: 0.6; color: var(--text-heading);">
+          <span style="font-weight: 500; font-size: 1.4rem; font-family: var(--font-secondary);"><i
+              class="fas fa-certificate"></i> IAAPA MEMBER</span>
+          <span style="font-weight: 500; font-size: 1.4rem; font-family: var(--font-secondary);"><i
+              class="fas fa-heart"></i> FIRST-AID CERTIFIED</span>
+          <span style="font-weight: 500; font-size: 1.4rem; font-family: var(--font-secondary);"><i
+              class="fas fa-smile"></i> KIDS CAFE HUB</span>
+          <span style="font-weight: 500; font-size: 1.4rem; font-family: var(--font-secondary);"><i
+              class="fas fa-leaf"></i> ECO-CLEAN ZONE</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-container" style="margin-bottom: 20px;">
+            <div class="logo-icon"><i class="fas fa-child"></i></div>
+            <span class="logo-text">JungleJamboree</span>
+          </div>
+          <p>Safe, premium soft play environments, themed birthday party packages, and easy parent portal access.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Github"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-topic">
+          <h4>Play Packages</h4>
+          <ul class="footer-links">
+            <li><a href="pages/services.html">Single Entry Pass</a></li>
+            <li><a href="pages/services.html">Adventure Club Pass</a></li>
+            <li><a href="pages/services.html">Jamboree Party Package</a></li>
+            <li><a href="pages/services.html">Group Trip Rental</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-topic">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="pages/dashboard.html">Parent Portal</a></li>
+            <li><a href="pages/categories.html">Attractions</a></li>
+            <li><a href="#calculator">Pass Calculator</a></li>
+            <li><a href="pages/coming-soon.html">Café Menu</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-topic">
+          <h4>Contact & Info</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-envelope"></i> play@junglejamboree.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Austin, TX (Serving Explorer Families)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 JungleJamboree. All rights reserved. Designed for active families.</p>
+        <div style="display: flex; gap: 24px;">
+          <a href="pages/404.html">Privacy Rules</a>
+          <a href="pages/404.html">Terms & Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script tags -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

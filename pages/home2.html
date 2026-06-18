@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Event Rentals & Field Trips | JungleJamboree</title>
+  <meta name="description" content="Host private play rentals, school outings, and kids group events with safety staff, parent cafe dining, and customized packages.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo-container" onclick="window.location.href='../index.html'">
+        <div class="logo-icon"><i class="fas fa-child"></i></div>
+        <span class="logo-text">JungleJamboree</span>
+      </div>
+
+      <!-- Hamburger menu toggle -->
+      <button class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Center navigation menu options -->
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="home2.html" class="nav-link active">Home 2</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="services.html" class="nav-link">Play Packages</a></li>
+          <li><a href="categories.html" class="nav-link">Attractions</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+          <div class="footer-actions-row">
+            <button class="rtl-toggle">RTL</button>
+            <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+          </div>
+          <a href="login.html" class="btn btn-primary">Sign In</a>
+        </div>
+      </nav>
+
+      <!-- Right side headers elements (RTL, Theme, and Login buttons) -->
+      <div class="header-actions">
+        <button class="rtl-toggle" aria-label="Toggle Right to Left">RTL</button>
+        <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <a href="login.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="margin-top: var(--header-height);">
+
+    <!-- SECTION 1: GROUP BOOKINGS HERO -->
+    <section class="section hero-section" style="background: radial-gradient(circle at 20% 30%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge" style="background: rgba(236, 72, 153, 0.12); color: var(--secondary-color);"><i class="fas fa-users"></i> Private & Group Play</span>
+          <h1 class="hero-title">Host Your Next <span>Group Adventure</span> With Us!</h1>
+          <p class="hero-subtitle">Enjoy exclusive playground rentals, school field trips, and custom children's group camp events with premium security and safety staff support.</p>
+          <div class="hero-buttons">
+            <a href="#powertuning" class="btn btn-primary">Try Event Planner</a>
+            <a href="contact.html" class="btn btn-secondary">Request Booking Info</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="serverless-graphic" style="border-color: var(--secondary-color);">
+            <div class="graphic-header" style="background: rgba(236, 72, 153, 0.1);">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span class="graphic-title">playground-event-details.json</span>
+            </div>
+            <div class="graphic-content" style="font-family: var(--font-primary); font-size: 0.95rem; line-height: 1.8; color: var(--text-color);">
+              <strong style="color: var(--secondary-color);"><i class="fas fa-child"></i> Group Size:</strong> 15 to 100 children<br>
+              <strong style="color: var(--secondary-color);"><i class="fas fa-clock"></i> Duration:</strong> 3 Hours Private Play<br>
+              <strong style="color: var(--secondary-color);"><i class="fas fa-user-shield"></i> Safety Staff:</strong> Dedicated Coordinators<br>
+              <strong style="color: var(--secondary-color);"><i class="fas fa-utensils"></i> Meal Options:</strong> Buffet / Snack packs available<br>
+              <strong style="color: var(--secondary-color);"><i class="fas fa-dollar-sign"></i> Pre-book discount:</strong> 15% off standard entry rates
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PERFORMANCE TUNING METRICS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Private Event Amenities</h2>
+          <p>We systematically address safety, cleanliness, and entertainment so you can relax during your group outing.</p>
+        </div>
+        <div class="card-grid">
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://i.pinimg.com/736x/61/c0/7e/61c07ece137b6e9c01dfcd274f2bef8c.jpg" alt="Play coordinators" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(91, 33, 182, 0.1); color: var(--primary-color);"><i class="fas fa-users-line"></i></div>
+            <h3 class="card-title">Dedicated Party Hosts</h3>
+            <p class="card-description">Our trained play coordinators coordinate check-in, set up party rooms, and guide child safety.</p>
+            <a href="services.html" class="btn btn-secondary">Review Package Details</a>
+          </div>
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZnd_xq34ZSs9kv5t1Qyfms1dBkAjjuXFC6NOyq-zQUGFAJvNref9Elcs&s=10" alt="Privatized Playground" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(236, 72, 153, 0.1); color: var(--secondary-color);"><i class="fas fa-key"></i></div>
+            <h3 class="card-title">Exclusive Buyouts</h3>
+            <p class="card-description">Close our playground gates to the general public. Enjoy complete security for your group.</p>
+            <a href="services.html" class="btn btn-secondary">Review Package Details</a>
+          </div>
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNNHp3cnPfePtTKTDK42DmSkObkeUa8-8vp91T8jV1cnTiEPjsP2a4A-B8&s=10" alt="Cafe Catering" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-color);"><i class="fas fa-utensils"></i></div>
+            <h3 class="card-title">Kids Cafe Catering</h3>
+            <p class="card-description">Delight kids with healthy snack trays, pizzas, fruit cups, and custom cupcakes from our parents cafe.</p>
+            <a href="services.html" class="btn btn-secondary">Review Package Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE POWER TUNING CALC -->
+    <section class="section" id="powertuning" style="background: rgba(236, 72, 153, 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Private Event Play Planner</h2>
+          <p>Select your play environment size to see estimated capacity limits and pricing packages.</p>
+        </div>
+
+        <div class="hero-grid" style="gap: 48px; align-items: stretch;">
+          <div class="premium-card" style="text-align: left; align-items: stretch; justify-content: start;">
+            <h3 class="card-title" style="align-self: center; margin-bottom: 24px;"><i class="fas fa-sliders-h" style="color: var(--accent-color);"></i> Adjust Play Arena Size</h3>
+            
+            <div style="margin-bottom: 30px;">
+              <label for="power-slider" style="font-weight: 500; display: block; margin-bottom: 8px;">Play Area Package</label>
+              <select id="power-slider" style="width: 100%; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-heading); font-family: var(--font-primary);">
+                <option value="128">Toddler Playroom Only - Shared Play</option>
+                <option value="512">Main Soft Play Arena - Shared Play</option>
+                <option value="1024" selected>Main Play Arena + Interactive Zones - Shared Play</option>
+                <option value="2048">Full Playground Buyout - Exclusive Private Play</option>
+                <option value="4096">Ultimate Group Jamboree (Buyout + Cafe Catering)</option>
+              </select>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-color); padding-top: 20px;">
+              <h4 style="margin-bottom: 12px;">Simulated Group Trip</h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">Ideal for kindergarten trips, daycare summer camps, and community children's groups seeking active soft play environments.</p>
+            </div>
+          </div>
+
+          <!-- Dynamic responses -->
+          <div class="premium-card" style="justify-content: space-between;">
+            <div class="stats-grid">
+              <div style="background: var(--bg-color); border: 1px solid var(--border-color); padding: 20px; border-radius: var(--radius-md);">
+                <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 500;">Capacity Limit</span>
+                <div id="tuning-duration" style="font-size: 2rem; font-weight: 580; color: var(--accent-color); margin-top: 8px;">75 children</div>
+              </div>
+
+              <div style="background: var(--bg-color); border: 1px solid var(--border-color); padding: 20px; border-radius: var(--radius-md);">
+                <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 500;">Estimated Cost</span>
+                <div id="tuning-cost" style="font-size: 2rem; font-weight: 580; color: var(--success); margin-top: 8px;">$449.00</div>
+              </div>
+            </div>
+
+            <div id="tuning-recommendation" style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.1); border-radius: var(--radius-md); padding: 20px; text-align: left; font-size: 0.95rem; line-height: 1.6; width: 100%; margin-top: 24px; color: var(--text-color);">
+              <strong>Insight:</strong> Play Arena + Interactive Zones. Adds interactive projection ball games, soft cannons, and parent lounge reservation.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: THEMED PARTY ROOMS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Private Themed Party Rooms</h2>
+          <p>Our exclusive party rooms are fully decorated and prepared for your birthday group, complete with hosting coordinators.</p>
+        </div>
+
+        <div class="card-grid">
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGracGZphnAvBsZey6t5kBt9GPGR8pG1ZXAGDsS8vBFdL5Ax6uAb7oWLI&s=10" alt="Pirate party decor" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(91, 33, 182, 0.1); color: var(--primary-color);"><i class="fas fa-ship"></i></div>
+            <h3 class="card-title">Pirate Cave Adventure</h3>
+            <p class="card-description">Set sail in our pirate hideout featuring treasure hunt games, pirate hats, and custom island cupcakes.</p>
+            <button class="btn btn-primary download-sam-btn" data-design="s3-trigger" style="width: 100%; margin-top: auto;">
+              <i class="fas fa-download"></i> Get Room Details
+            </button>
+          </div>
+
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://m.media-amazon.com/images/I/912-j-VswFL.jpg" alt="Princess castle party room" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(236, 72, 153, 0.1); color: var(--secondary-color);"><i class="fas fa-wand-sparkles"></i></div>
+            <h3 class="card-title">Princess Magic Castle</h3>
+            <p class="card-description">Reign in style with royal castle decorations, tiara crafts, pink balloon arches, and high tea treats.</p>
+            <button class="btn btn-primary download-sam-btn" data-design="sqs-lambda-db" style="width: 100%; margin-top: auto;">
+              <i class="fas fa-download"></i> Get Room Details
+            </button>
+          </div>
+
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1lRCrgvNc7bt3NHx_oARLCE3RIjQl95a1j9rX7Ke4MDXe6xJBHxM3Mvc&s=10" alt="Cosmic play room" class="card-img">
+            </div>
+            <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-color);"><i class="fas fa-rocket"></i></div>
+            <h3 class="card-title">Space Jamboree</h3>
+            <p class="card-description">Blast off in a cosmic glow-in-the-dark space room with neon play socks, starry lighting, and space galaxy juice.</p>
+            <button class="btn btn-primary download-sam-btn" data-design="api-gateway-lambda" style="width: 100%; margin-top: auto;">
+              <i class="fas fa-download"></i> Get Room Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: PLAYGROUND ATTENDANCE TELEMETRY -->
+    <section class="section" style="background: rgba(236, 72, 153, 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Playground Crowd & Wait Telemetry</h2>
+          <p>Review average attendance densities, gate lines, and deep-clean intervals to plan your visit.</p>
+        </div>
+
+        <div class="telemetry-table-wrapper" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 30px; color: var(--text-color);">
+          <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color); color: var(--text-heading); font-weight: 500;">
+                <th style="padding: 16px 8px;">Play Session Time</th>
+                <th style="padding: 16px 8px;">Gate Wait Line</th>
+                <th style="padding: 16px 8px;">Crowd Density</th>
+                <th style="padding: 16px 8px;">Sanitization Cycle</th>
+                <th style="padding: 16px 8px;">Safety Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 16px 8px; font-weight: 500;"><i class="fas fa-sun" style="color: #ff9900; margin-right: 8px;"></i> Weekday Morning (9AM - 12PM)</td>
+                <td style="padding: 16px 8px;">&lt; 2 mins</td>
+                <td style="padding: 16px 8px; color: var(--success);">Quiet (Toddler focus)</td>
+                <td style="padding: 16px 8px;">Continuous spot cleans</td>
+                <td style="padding: 16px 8px;"><span class="badge" style="background: rgba(16, 185, 129, 0.12); color: var(--success); margin: 0;">Excellent</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 16px 8px; font-weight: 500;"><i class="fas fa-cloud-sun" style="color: #f38020; margin-right: 8px;"></i> Weekday Afternoon (3PM - 6PM)</td>
+                <td style="padding: 16px 8px;">5 mins</td>
+                <td style="padding: 16px 8px; color: var(--success);">Moderate play</td>
+                <td style="padding: 16px 8px;">1:30 PM Full clean</td>
+                <td style="padding: 16px 8px;"><span class="badge" style="background: rgba(16, 185, 129, 0.12); color: var(--success); margin: 0;">Excellent</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 16px 8px; font-weight: 500;"><i class="fas fa-calendar-day" style="color: #4285f4; margin-right: 8px;"></i> Weekend Morning (9AM - 1PM)</td>
+                <td style="padding: 16px 8px;">12 mins</td>
+                <td style="padding: 16px 8px; color: var(--warning);">Energetic (Active)</td>
+                <td style="padding: 16px 8px;">8:00 AM Deep clean</td>
+                <td style="padding: 16px 8px;"><span class="badge" style="background: rgba(16, 185, 129, 0.12); color: var(--success); margin: 0;">Very Safe</span></td>
+              </tr>
+              <tr>
+                <td style="padding: 16px 8px; font-weight: 500;"><i class="fas fa-users" style="color: #ff9900; margin-right: 8px;"></i> Weekend Afternoon (2PM - 6PM)</td>
+                <td style="padding: 16px 8px;">25 mins</td>
+                <td style="padding: 16px 8px; color: var(--danger);">Peak Crowded</td>
+                <td style="padding: 16px 8px;">5:00 PM Soft clean</td>
+                <td style="padding: 16px 8px;"><span class="badge" style="background: rgba(16, 185, 129, 0.12); color: var(--success); margin: 0;">Very Safe</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: ENTERPRISE AUDIT BOOKING -->
+    <section class="section">
+      <div class="container" style="text-align: center;">
+        <div class="section-header">
+          <h2>Begin Group Event Planning</h2>
+          <p>Book a school outing, private playground rental, or camp play slot. Receive dedicated staff, catering deals, and simplified safety waivers.</p>
+        </div>
+        <div class="btn-group" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-primary"><i class="fas fa-calendar-alt"></i> Plan Your Outing</a>
+          <a href="dashboard.html" class="btn btn-secondary"><i class="fas fa-tachometer-alt"></i> Access Parent Portal</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-container" style="margin-bottom: 20px;">
+            <div class="logo-icon"><i class="fas fa-child"></i></div>
+            <span class="logo-text">JungleJamboree</span>
+          </div>
+          <p>Safe, premium soft play environments, themed birthday party packages, and easy parent portal access.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Github"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-topic">
+          <h4>Play Packages</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Single Entry Pass</a></li>
+            <li><a href="services.html">Adventure Club Pass</a></li>
+            <li><a href="services.html">Jamboree Party Package</a></li>
+            <li><a href="services.html">Group Trip Rental</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-topic">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="dashboard.html">Parent Portal</a></li>
+            <li><a href="categories.html">Attractions</a></li>
+            <li><a href="../index.html#calculator">Pass Calculator</a></li>
+            <li><a href="coming-soon.html">Café Menu</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-topic">
+          <h4>Contact & Info</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-envelope"></i> play@junglejamboree.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Austin, TX (Serving Explorer Families)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 JungleJamboree. All rights reserved. Designed for active families.</p>
+        <div style="display: flex; gap: 24px;">
+          <a href="404.html">Privacy Rules</a>
+          <a href="404.html">Terms & Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script and interactive simulation trigger tags -->
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Embedded Power Tuning Calculator Logic
+    const powerSlider = document.getElementById('power-slider');
+    const durationDisplay = document.getElementById('tuning-duration');
+    const costDisplay = document.getElementById('tuning-cost');
+    const recommendationDisplay = document.getElementById('tuning-recommendation');
+
+    const rates = {
+      '128': { duration: '25 children', cost: 150.00, text: '<strong>Insight:</strong> Toddler Playroom Only. Ideal for small playgroups, nursery trips, and children under age 4.' },
+      '512': { duration: '50 children', cost: 299.00, text: '<strong>Insight:</strong> Main Soft Play Arena. Includes complete access to slide mountains, obstacle runs, and sensory crawl zones.' },
+      '1024': { duration: '75 children', cost: 449.00, text: '<strong>Insight:</strong> Play Arena + Interactive Zones. Adds interactive projection ball games, soft cannons, and parent lounge reservation.' },
+      '2048': { duration: '100 children', cost: 599.00, text: '<strong>Insight:</strong> Full Playground Buyout. Enjoy private, exclusive play for your group with no outside visitors allowed.' },
+      '4096': { duration: '120 children', cost: 899.00, text: '<strong>Insight:</strong> Ultimate Group Jamboree. Full playground privatization plus catered kids meals, drinks, and dedicated coordinators.' }
+    };
+
+    function updateTuning() {
+      const selected = powerSlider.value;
+      const data = rates[selected];
+      durationDisplay.textContent = data.duration;
+      costDisplay.textContent = `$${data.cost.toFixed(2)}`;
+      recommendationDisplay.innerHTML = data.text;
+    }
+
+    powerSlider.addEventListener('change', updateTuning);
+    updateTuning();
+  </script>
+</body>
+</html>

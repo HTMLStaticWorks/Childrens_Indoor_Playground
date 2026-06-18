@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent Dashboard | JungleJamboree</title>
+  <meta name="description" content="Manage your children's profiles, book party rooms, and purchase entry passes.">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+
+  <style>
+    /* ==========================================================================
+       DASHBOARD-SPECIFIC LAYOUT CSS
+       ========================================================================== */
+    body {
+      background: var(--bg-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Fixed, sticky, non-scrolling Header */
+    .dashboard-header {
+      position: fixed;
+      top: 0;
+      left: var(--sidebar-width);
+      width: calc(100% - var(--sidebar-width));
+      height: 70px;
+      background: var(--bg-header);
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      transition: all var(--transition-normal);
+    }
+
+    .dashboard-header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Hamburger menu toggle - visible on Mobile / Tablet */
+    #dashboard-sidebar-toggle {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      color: var(--text-heading);
+      cursor: pointer;
+      display: none;
+    }
+
+    .dashboard-rtl-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      height: 40px;
+      padding: 0 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text-heading);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dashboard-theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-heading);
+      font-size: 1rem;
+    }
+
+    /* Profile Pill in sticky header right side */
+    .header-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      height: 40px;
+      padding: 0 16px;
+      border-radius: var(--radius-full);
+      background: rgba(6, 182, 212, 0.08);
+      transition: background var(--transition-fast);
+    }
+
+    .header-profile:hover {
+      background: rgba(6, 182, 212, 0.15);
+    }
+
+    .profile-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .profile-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    /* Fixed Left Sidebar (Docked on desktop, off-canvas on mobile) */
+    .dashboard-sidebar {
+      width: var(--sidebar-width);
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border-color);
+      z-index: 950;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      transition: transform var(--transition-normal);
+    }
+
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .sidebar-link i {
+      width: 20px;
+      margin-right: 12px;
+      font-size: 1.1rem;
+    }
+
+    .sidebar-link:hover,
+    .sidebar-link.active {
+      background: rgba(6, 182, 212, 0.08);
+      color: var(--accent-color);
+    }
+
+    .sidebar-link .badge-count {
+      margin-left: auto;
+      background: var(--accent-color);
+      color: var(--primary-color);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 920;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-normal);
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Main Dashboard content display container */
+    .dashboard-main {
+      margin-left: var(--sidebar-width);
+      padding: 100px 30px 40px 30px;
+      /* Space for non-scrolling sticky header */
+      flex: 1;
+      transition: all var(--transition-normal);
+    }
+
+    /* Panel Switching rules */
+    .dashboard-panel {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .dashboard-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Statistics Metric block alignments - Centered Cards */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-number {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      margin: 8px 0;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    .stat-sub {
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Live terminal logs styling */
+    .terminal-console {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      font-family: monospace;
+      color: #38bdf8;
+      box-shadow: var(--shadow-lg);
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .console-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .console-log-area {
+      height: 250px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .log-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-left: 3px solid var(--success);
+      padding: 8px 12px;
+      margin-bottom: 6px;
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.01);
+      border-radius: 4px;
+      gap: 12px;
+      transition: background var(--transition-fast);
+    }
+
+    .log-entry:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .log-entry span {
+      line-height: 1.4;
+    }
+
+    /* Input with inside Attach clip icon */
+    .attach-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .attach-input-wrapper input {
+      width: 100%;
+      padding: 14px 44px 14px 16px;
+      /* Leave space on right for paperclip */
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      background: var(--bg-card);
+      color: var(--text-heading);
+      outline: none;
+    }
+
+    .attach-input-wrapper input:focus {
+      border-color: var(--accent-color);
+    }
+
+    .attach-icon-btn {
+      position: absolute;
+      right: 16px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      cursor: pointer;
+      transition: color var(--transition-fast);
+    }
+
+    .attach-icon-btn:hover {
+      color: var(--accent-color);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE SETTINGS FOR DASHBOARD LAYOUT
+       ========================================================================== */
+
+    /* Desktop View (1024px to 1440px) */
+    @media (min-width: 1024px) {
+      .dashboard-sidebar {
+        transform: translateX(0);
+        /* Lock always visible */
+      }
+
+      .dashboard-header {
+        left: var(--sidebar-width);
+        width: calc(100% - var(--sidebar-width));
+        padding: 0 40px;
+      }
+
+      .dashboard-header-right {
+        gap: 24px;
+      }
+
+      .dashboard-main {
+        margin-left: var(--sidebar-width);
+        padding: 100px 40px 40px 40px;
+      }
+
+      #dashboard-sidebar-toggle {
+        display: none;
+        /* Hide mobile toggles */
+      }
+    }
+
+    /* Mobile / Tablet View (360px and 768px) */
+    @media (max-width: 1023px) {
+      .dashboard-sidebar {
+        transform: translateX(-100%);
+        /* Off-canvas drawer */
+      }
+
+      .dashboard-sidebar.active {
+        transform: translateX(0);
+        /* Slide-in */
+      }
+
+      .dashboard-header {
+        left: 0;
+        width: 100%;
+        padding: 0 16px;
+      }
+
+      .dashboard-main {
+        margin-left: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      #dashboard-sidebar-toggle {
+        display: block;
+        /* Hamburger is visible on left of sticky header */
+      }
+
+      .profile-name {
+        display: none;
+        /* Hide text, keep avatar only to fit screen */
+      }
+    }
+
+    .dashboard-header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Extra Small Devices (360px) Header Optimization */
+    @media (max-width: 400px) {
+      .dashboard-header {
+        padding: 0 8px;
+        height: 60px;
+      }
+      .dashboard-header-right {
+        gap: 6px;
+      }
+      .dashboard-header-left {
+        gap: 6px;
+      }
+      .dashboard-rtl-toggle {
+        height: 32px !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 0 10px !important;
+        font-size: 0.7rem !important;
+      }
+      .dashboard-theme-toggle {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.8rem !important;
+      }
+      .header-profile {
+        height: 32px !important;
+        padding: 0 4px !important;
+        gap: 2px !important;
+      }
+      .profile-avatar {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 0.7rem !important;
+      }
+      #dashboard-view-title {
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+      }
+
+      /* Fix log console overlapping on 360px */
+      .terminal-console {
+        padding: 16px 12px;
+      }
+      .console-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .log-entry {
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px;
+      }
+      .log-entry > span:last-child {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        padding-top: 4px;
+        margin-top: 2px;
+      }
+    }
+
+    /* Responsive Grid Centering Overrides */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      #panel-overview .stats-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      #panel-overview .stats-row .stat-card:nth-child(4) {
+        grid-column: 2; /* Center the 4th card in a 3-column grid */
+      }
+    }
+
+    @media (min-width: 1024px) {
+      #panel-projects .card-grid,
+      #panel-downloads .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      #panel-projects .card-grid .premium-card:nth-child(3),
+      #panel-downloads .card-grid .premium-card:nth-child(3) {
+        grid-column: span 2;
+        width: calc(50% - 12px);
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- STICKY NON-SCROLLABLE HEADER (Locked top, contains RTL, Theme, and Profile) -->
+  <header class="dashboard-header">
+    <div class="dashboard-header-left">
+      <!-- Hamburger Toggle trigger -->
+      <button id="dashboard-sidebar-toggle" aria-label="Toggle Navigation Drawer">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h2 id="dashboard-view-title"
+        style="margin: 0; font-size: 1.4rem; letter-spacing: 1px; color: var(--text-heading); font-family: var(--font-secondary); font-weight: 800;">
+        OVERVIEW</h2>
+    </div>
+
+    <!-- Right Side: RTL, Theme, and Avatar Profile -->
+    <div class="dashboard-header-right">
+      <button class="dashboard-rtl-toggle rtl-toggle">RTL</button>
+      <button class="dashboard-theme-toggle theme-toggle"><i class="fas fa-moon"></i></button>
+
+      <!-- Profile Pill container -->
+      <div class="header-profile" onclick="window.location.href='../pages/404.html'">
+        <div class="profile-avatar">JL</div>
+        <span class="profile-name">James Lim</span>
+        <i class="fas fa-chevron-down" style="font-size: 0.75rem; color: var(--text-muted);"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- FIXED LEFT SIDEBAR (Toggles in Mobile, always visible in Desktop) -->
+  <aside class="dashboard-sidebar">
+    <div class="sidebar-brand" onclick="window.location.href='../index.html'">
+      <div class="logo-icon"><i class="fas fa-tree"></i></div>
+      <span class="logo-text">JungleJamboree</span>
+    </div>
+
+    <ul class="sidebar-menu">
+      <li>
+        <a class="sidebar-link active" data-tab="overview">
+          <i class="fas fa-home"></i><span>Overview</span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-link" data-tab="projects">
+          <i class="fas fa-child"></i><span>My Children</span><span class="badge-count">2</span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-link" data-tab="upload">
+          <i class="fas fa-ticket-alt"></i><span>Buy Passes</span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-link" data-tab="reviews">
+          <i class="fas fa-birthday-cake"></i><span>Book a Party</span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-link" data-tab="revisions">
+          <i class="fas fa-file-signature"></i><span>Sign Waivers</span><span class="badge-count">1</span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-link" data-tab="downloads">
+          <i class="fas fa-history"></i><span>Visit History</span>
+        </a>
+      </li>
+      <li style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 20px;">
+        <a class="sidebar-link" data-tab="settings">
+          <i class="fas fa-cog"></i><span>Settings</span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar-link" href="../index.html" style="color: var(--danger);">
+          <i class="fas fa-sign-out-alt"></i><span>Sign Out</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN DASHBOARD COMPONENT SPACE -->
+  <main class="dashboard-main">
+
+    <!-- TAB PANEL 1: OVERVIEW -->
+    <div id="panel-overview" class="dashboard-panel active">
+      <div class="section-header" style="margin-bottom: 40px;">
+        <h2>Family Overview</h2>
+        <p>Manage your children's profiles, track available play passes, and see upcoming booked events.</p>
+      </div>
+
+      <!-- Centered Cards Row -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="card-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--success);"><i
+              class="fas fa-ticket-alt"></i></div>
+          <div class="stat-label">Available Passes</div>
+          <div class="stat-number" id="widget-pass-count">4</div>
+          <div class="stat-sub" style="color: var(--success);"><i class="fas fa-check-circle"></i> Ready to use</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);"><i
+              class="fas fa-file-signature"></i></div>
+          <div class="stat-label">Missing Waivers</div>
+          <div class="stat-number" id="widget-waiver-count">1</div>
+          <div class="stat-sub" id="widget-waiver-sub" style="color: var(--warning);"><i class="fas fa-exclamation-triangle"></i> Action required
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="card-icon" style="background: rgba(79, 70, 229, 0.1); color: var(--secondary-color);"><i
+              class="fas fa-birthday-cake"></i></div>
+          <div class="stat-label">Upcoming Parties</div>
+          <div class="stat-number" id="widget-party-count">0</div>
+          <div class="stat-sub" id="widget-party-sub" style="color: var(--text-muted);">No parties booked</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="card-icon" style="background: rgba(6, 182, 212, 0.1); color: var(--accent-color);"><i
+              class="fas fa-star"></i></div>
+          <div class="stat-label">Membership Status</div>
+          <div class="stat-number">VIP</div>
+          <div class="stat-sub" style="color: var(--accent-color);"><i class="fas fa-crown"></i> Active until Dec 31</div>
+        </div>
+      </div>
+
+      <!-- Playground Announcements & Cafe Offers -->
+      <div class="card-grid" style="margin-bottom: 40px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="premium-card" style="text-align: left; align-items: stretch; justify-content: start;">
+          <h3 class="card-title" style="font-size: 1.15rem; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+            <i class="fas fa-bullhorn" style="color: var(--accent-color);"></i> Playground Announcements
+          </h3>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem; color: var(--text-muted);">
+            <li style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+              <strong style="color: var(--text-heading); display: block; margin-bottom: 4px;">Parents' Night Out! <i class="fas fa-glass-cheers" style="color: var(--accent-color); margin-left: 4px;"></i></strong>
+              This Friday from 6 PM to 9 PM. Secure supervised play, dinner included. Pre-book in dashboard.
+            </li>
+            <li style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+              <strong style="color: var(--text-heading); display: block; margin-bottom: 4px;">New Safety Inspections Complete <i class="fas fa-check-circle" style="color: var(--success); margin-left: 4px;"></i></strong>
+              All climbing frames and slides have received their monthly certified safety audit.
+            </li>
+            <li>
+              <strong style="color: var(--text-heading); display: block; margin-bottom: 4px;">Sensory Class for Toddlers <i class="fas fa-shapes" style="color: var(--secondary-color); margin-left: 4px;"></i></strong>
+              Join our toddler sensor play every Tuesday morning at 10 AM. No pre-booking required.
+            </li>
+          </ul>
+        </div>
+
+        <div class="premium-card" style="text-align: left; align-items: stretch; justify-content: space-between;">
+          <div>
+            <h3 class="card-title" style="font-size: 1.15rem; display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+              <i class="fas fa-cookie-bite" style="color: var(--secondary-color);"></i> Cafe Specials & Deals
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">
+              Show this coupon code at the Jungle Cafe counter to claim active discount codes while your kids are playing!
+            </p>
+            <div style="background: rgba(236, 72, 153, 0.05); border: 2px dashed rgba(236, 72, 153, 0.2); border-radius: var(--radius-sm); padding: 16px; text-align: center; font-family: monospace; font-size: 1.25rem; font-weight: 700; color: var(--secondary-color); letter-spacing: 2px; margin-bottom: 16px;">
+              COFFEE15
+            </div>
+          </div>
+          <span style="font-size: 0.75rem; color: var(--text-muted); text-align: center; display: block; width: 100%;">
+            <i class="fas fa-info-circle"></i> Valid for 15% off any parent espresso and muffin combo.
+          </span>
+        </div>
+      </div>
+
+      <!-- Live Playground Activity -->
+      <div class="terminal-console">
+        <div class="console-header">
+          <span><i class="fas fa-broadcast-tower"></i> LIVE PLAYGROUND ACTIVITY</span>
+          <span>Status: OPEN NOW</span>
+        </div>
+        <div id="dashboard-log-stream" class="console-log-area">
+          <div class="log-entry">
+            <span>[15:15:35] <strong style="color: var(--accent-color);">System</strong>: Facility Capacity <span
+                style="color: var(--secondary-color);">Normal</span></span>
+            <span>
+              <span style="margin-right: 12px; color: var(--text-muted);">Current: 45 Kids</span>
+              <span style="color: var(--success); font-weight: 700;">OK</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB PANEL 2: MY CHILDREN -->
+    <div id="panel-projects" class="dashboard-panel">
+      <div class="section-header">
+        <h2>Children Profiles</h2>
+        <p>Manage profiles, age verification, and dietary restrictions for your children.</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="premium-card" style="justify-content: start;">
+          <img src="../assets/img/leo_portrait.png" alt="Leo Jenkins" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid var(--accent-color); box-shadow: var(--shadow-sm);">
+          <h3 class="card-title">Leo Jenkins</h3>
+          <p class="card-description" style="line-height: 1.8;">
+            <strong>Age:</strong> 5 years<br>
+            <strong>Allergies:</strong> Peanuts <span class="badge" style="background: rgba(239, 68, 68, 0.1); color: var(--danger); font-size: 0.7rem; padding: 2px 6px; display: inline;">HAZARD</span><br>
+            <strong>Waiver:</strong> Signed (May 12, 2026)<br>
+            <strong>Fav Zone:</strong> Adventure Arena
+          </p>
+          <span class="badge" style="background: rgba(16, 185, 129, 0.12); color: var(--success); align-self: center; margin: 10px 0;">READY TO PLAY</span>
+
+          <!-- Interactive Barcode Check-In Mock -->
+          <div class="barcode-container" style="display: flex; flex-direction: column; align-items: center; margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 15px; width: 100%;">
+            <span style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">Check-In Barcode</span>
+            <div style="display: flex; height: 32px; background: white; padding: 4px; border-radius: 2px; align-items: stretch; justify-content: center; width: 120px;">
+              <div style="width: 2px; background: black; margin-right: 1px;"></div>
+              <div style="width: 4px; background: black; margin-right: 2px;"></div>
+              <div style="width: 1px; background: black; margin-right: 1px;"></div>
+              <div style="width: 3px; background: black; margin-right: 2px;"></div>
+              <div style="width: 2px; background: black; margin-right: 1px;"></div>
+              <div style="width: 4px; background: black; margin-right: 1px;"></div>
+              <div style="width: 1px; background: black; margin-right: 2px;"></div>
+              <div style="width: 3px; background: black; margin-right: 1px;"></div>
+              <div style="width: 2px; background: black; margin-right: 1px;"></div>
+              <div style="width: 1px; background: black; margin-right: 2px;"></div>
+              <div style="width: 3px; background: black; margin-right: 1px;"></div>
+            </div>
+            <span style="font-size: 0.65rem; color: var(--text-muted); font-family: monospace; margin-top: 2px;">*LEO-1024*</span>
+          </div>
+        </div>
+
+        <div class="premium-card" style="justify-content: start;">
+          <img src="../assets/img/mia_portrait.png" alt="Mia Jenkins" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid var(--secondary-color); box-shadow: var(--shadow-sm);">
+          <h3 class="card-title">Mia Jenkins</h3>
+          <p class="card-description" style="line-height: 1.8;">
+            <strong>Age:</strong> 2 years<br>
+            <strong>Allergies:</strong> None<br>
+            <strong>Waiver:</strong> <span id="mia-waiver-status" style="color: var(--danger); font-weight: 700;">Required!</span><br>
+            <strong>Fav Zone:</strong> Toddler Jungle
+          </p>
+          <span class="badge" id="mia-status-badge" style="background: rgba(245, 158, 11, 0.12); color: var(--warning); align-self: center; margin: 10px 0;">ACTION REQUIRED</span>
+
+          <!-- Interactive Barcode Check-In Mock (Hidden until waiver signed) -->
+          <div class="barcode-container" id="mia-barcode-box" style="display: flex; flex-direction: column; align-items: center; margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 15px; width: 100%; opacity: 0.3; filter: blur(1px);">
+            <span style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;" id="mia-barcode-label">Check-In Barcode (Sign Waiver First)</span>
+            <div style="display: flex; height: 32px; background: white; padding: 4px; border-radius: 2px; align-items: stretch; justify-content: center; width: 120px;" id="mia-barcode-visual">
+              <div style="width: 1px; background: black; margin-right: 2px;"></div>
+              <div style="width: 3px; background: black; margin-right: 1px;"></div>
+              <div style="width: 2px; background: black; margin-right: 2px;"></div>
+              <div style="width: 4px; background: black; margin-right: 1px;"></div>
+              <div style="width: 1px; background: black; margin-right: 1px;"></div>
+            </div>
+            <span style="font-size: 0.65rem; color: var(--text-muted); font-family: monospace; margin-top: 2px;" id="mia-barcode-text">*LOCKED*</span>
+          </div>
+        </div>
+
+        <div class="premium-card" style="display: flex; justify-content: center; align-items: center; border-style: dashed; cursor: pointer;" onclick="alert('Add child form opened!')">
+          <div style="text-align: center;">
+            <i class="fas fa-plus-circle" style="font-size: 2.5rem; color: var(--text-muted); margin-bottom: 10px;"></i>
+            <h3 class="card-title" style="margin: 0; color: var(--text-muted);">Add Child</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="premium-card" style="margin-top: 30px; text-align: left; align-items: stretch; border-left: 4px solid var(--accent-color);">
+        <h3 class="card-title" style="font-size: 1.15rem; display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+          <i class="fas fa-phone-alt" style="color: var(--accent-color);"></i> Emergency Contacts & Safety Details
+        </h3>
+        <div class="stats-row" style="margin-bottom: 0; gap: 20px;">
+          <div style="background: var(--bg-color); border: 1px solid var(--border-color); padding: 16px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 12px; flex: 1;">
+            <div style="background: rgba(6, 182, 212, 0.1); color: var(--accent-color); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="fas fa-user-friends"></i></div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Primary Guardian</span>
+              <strong style="font-size: 0.95rem; color: var(--text-heading);">James Lim (Father) - (555) 019-2834</strong>
+            </div>
+          </div>
+          <div style="background: var(--bg-color); border: 1px solid var(--border-color); padding: 16px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 12px; flex: 1;">
+            <div style="background: rgba(239, 68, 68, 0.1); color: var(--danger); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="fas fa-ambulance"></i></div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Secondary Contact</span>
+              <strong style="font-size: 0.95rem; color: var(--text-heading);">Sarah Lim (Mother) - (555) 019-2835</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB PANEL 3: BUY PASSES -->
+    <div id="panel-upload" class="dashboard-panel">
+      <div class="section-header" style="margin-bottom: 40px;">
+        <h2>Purchase Entry Passes</h2>
+        <p>Choose from single-day entry packages, multipass credits, or unlimited VIP plans.</p>
+      </div>
+
+      <!-- Passes Packages Grid -->
+      <div class="card-grid" style="margin-bottom: 40px;">
+        <div class="premium-card" style="border-top: 4px solid var(--accent-color); text-align: left; align-items: stretch; justify-content: start;">
+          <span class="badge" style="background: rgba(6, 182, 212, 0.1); color: var(--accent-color); width: fit-content; margin-bottom: 12px;">Day Pass</span>
+          <h3 class="card-title" style="font-size: 1.5rem; margin-bottom: 10px;">Single Entry Pass</h3>
+          <p style="font-size: 1.75rem; font-weight: 700; color: var(--text-heading); margin-bottom: 15px;">$18.00</p>
+          <ul style="list-style: none; padding: 0; margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted); line-height: 2;">
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> 2 Hours of standard soft play</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Access to all play zones</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> 2 Accompanying adults free</li>
+          </ul>
+        </div>
+
+        <div class="premium-card" style="border-top: 4px solid var(--secondary-color); text-align: left; align-items: stretch; justify-content: start;">
+          <span class="badge" style="background: rgba(236, 72, 153, 0.1); color: var(--secondary-color); width: fit-content; margin-bottom: 12px;">Multipass</span>
+          <h3 class="card-title" style="font-size: 1.5rem; margin-bottom: 10px;">5-Play Punch Card</h3>
+          <p style="font-size: 1.75rem; font-weight: 700; color: var(--text-heading); margin-bottom: 15px;">$75.00</p>
+          <ul style="list-style: none; padding: 0; margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted); line-height: 2;">
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> 5 Separate 2-hour entry passes</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Save $15 on individual entries</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Fully transferable to siblings</li>
+          </ul>
+        </div>
+
+        <div class="premium-card" style="border-top: 4px solid var(--success); text-align: left; align-items: stretch; justify-content: start;">
+          <span class="badge" style="background: rgba(16, 185, 129, 0.1); color: var(--success); width: fit-content; margin-bottom: 12px;">Unlimited</span>
+          <h3 class="card-title" style="font-size: 1.5rem; margin-bottom: 10px;">Monthly Play Club</h3>
+          <p style="font-size: 1.75rem; font-weight: 700; color: var(--text-heading); margin-bottom: 15px;">$45.00<span style="font-size: 0.9rem; font-weight: 500; color: var(--text-muted);">/mo</span></p>
+          <ul style="list-style: none; padding: 0; margin-bottom: 20px; font-size: 0.85rem; color: var(--text-muted); line-height: 2;">
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Unlimited playtime daily</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> 10% Off cafe and merch items</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> 15% Off birthday parties</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Interactive Checkout Calculator -->
+      <div class="premium-card" style="padding: 40px; text-align: left; align-items: stretch;">
+        <h3 class="card-title" style="align-self: center; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+          <i class="fas fa-shopping-cart" style="color: var(--accent-color);"></i> Quick Checkout Pass Simulator
+        </h3>
+        
+        <form id="pass-purchase-form" style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="hero-grid" style="gap: 24px; margin-top: 0;">
+            <div class="form-group">
+              <label for="purchase-child">Select Child</label>
+              <select id="purchase-child" class="form-input" style="padding: 12px 16px; background: var(--bg-card); color: var(--text-heading);">
+                <option value="both">Both (Leo & Mia)</option>
+                <option value="leo">Leo Jenkins (Age 5)</option>
+                <option value="mia">Mia Jenkins (Age 2)</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="purchase-pass-type">Select Pass Tier</label>
+              <select id="purchase-pass-type" class="form-input" style="padding: 12px 16px; background: var(--bg-card); color: var(--text-heading);">
+                <option value="18">Single Entry Pass - $18.00</option>
+                <option value="75">5-Play Punch Card - $75.00</option>
+                <option value="45">Monthly Play Club - $45.00/mo</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="hero-grid" style="gap: 24px; margin-top: 0; align-items: center;">
+            <div class="form-group">
+              <label for="purchase-qty">Quantity</label>
+              <input type="number" id="purchase-qty" min="1" max="5" value="1" class="form-input" style="padding: 12px 16px;">
+            </div>
+            
+            <div style="background: rgba(6, 182, 212, 0.05); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; width: 100%; height: 50px;">
+              <span style="font-weight: 700; color: var(--text-muted);">Estimated Total:</span>
+              <span id="purchase-total-display" style="font-size: 1.5rem; font-weight: 800; color: var(--accent-color);">$18.00</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;"><i class="fas fa-credit-card"></i> Pay & Add Passes to Account</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- TAB PANEL 4: BOOK A PARTY -->
+    <div id="panel-reviews" class="dashboard-panel">
+      <div class="section-header">
+        <h2>Book a Birthday Party Room</h2>
+        <p>Plan an unforgettable birthday bash! Select your tier and request reservation dates instantly.</p>
+      </div>
+
+      <div class="card-grid" style="margin-bottom: 40px;">
+        <div class="premium-card" style="text-align: left; align-items: stretch; justify-content: start;">
+          <span class="badge" style="background: rgba(91, 33, 182, 0.1); color: var(--primary-color); width: fit-content; margin-bottom: 12px;">Standard</span>
+          <h3 class="card-title" style="font-size: 1.35rem; margin-bottom: 10px;">Jungle Base Party</h3>
+          <p style="font-size: 1.5rem; font-weight: 700; color: var(--text-heading); margin-bottom: 15px;">$350.00</p>
+          <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 2;">
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> 2 Hours private room + play</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Up to 15 kids included</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Dedicated hosting staff</li>
+          </ul>
+        </div>
+
+        <div class="premium-card" style="text-align: left; align-items: stretch; justify-content: start; border-top: 4px solid var(--secondary-color);">
+          <span class="badge" style="background: rgba(236, 72, 153, 0.1); color: var(--secondary-color); width: fit-content; margin-bottom: 12px;">Most Popular</span>
+          <h3 class="card-title" style="font-size: 1.35rem; margin-bottom: 10px;">Jungle VIP Safari</h3>
+          <p style="font-size: 1.5rem; font-weight: 700; color: var(--text-heading); margin-bottom: 15px;">$499.00</p>
+          <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 2;">
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Standard features + 3 pizzas</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Up to 20 kids included</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Themed balloons & tableware</li>
+          </ul>
+        </div>
+
+        <div class="premium-card" style="text-align: left; align-items: stretch; justify-content: start; border-top: 4px solid var(--accent-color);">
+          <span class="badge" style="background: rgba(6, 182, 212, 0.1); color: var(--accent-color); width: fit-content; margin-bottom: 12px;">Deluxe</span>
+          <h3 class="card-title" style="font-size: 1.35rem; margin-bottom: 10px;">Ultimate Jamboree</h3>
+          <p style="font-size: 1.5rem; font-weight: 700; color: var(--text-heading); margin-bottom: 15px;">$650.00</p>
+          <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 2;">
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> VIP + custom birthday cake</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Up to 25 kids included</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 8px;"></i> Character mascot visit (15m)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Interactive Party Booking Form -->
+      <div class="premium-card" style="padding: 40px; text-align: left; align-items: stretch;">
+        <h3 class="card-title" style="align-self: center; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+          <i class="fas fa-calendar-alt" style="color: var(--secondary-color);"></i> Reserve Celebration Slot
+        </h3>
+        
+        <form id="party-booking-form" style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="hero-grid" style="gap: 24px; margin-top: 0;">
+            <div class="form-group">
+              <label for="party-package-select">Select Package Tier</label>
+              <select id="party-package-select" class="form-input" style="padding: 12px 16px; background: var(--bg-card); color: var(--text-heading);">
+                <option value="Standard">Jungle Base Party - $350</option>
+                <option value="VIP">Jungle VIP Safari - $499</option>
+                <option value="Jamboree">Ultimate Jamboree - $650</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="party-theme">Select Party Theme</label>
+              <select id="party-theme" class="form-input" style="padding: 12px 16px; background: var(--bg-card); color: var(--text-heading);">
+                <option value="pirate">Pirate Cave Adventure</option>
+                <option value="princess">Princess Magic Castle</option>
+                <option value="space">Space Jamboree Glow</option>
+                <option value="jungle">Wild Safari Jungle</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="hero-grid" style="gap: 24px; margin-top: 0;">
+            <div class="form-group">
+              <label for="party-date">Select Reservation Date</label>
+              <input type="date" id="party-date" required class="form-input" style="padding: 12px 16px;">
+            </div>
+
+            <div class="form-group">
+              <label for="party-time">Select Time Slot</label>
+              <select id="party-time" class="form-input" style="padding: 12px 16px; background: var(--bg-card); color: var(--text-heading);">
+                <option value="morning">Morning Session (10:00 AM - 12:00 PM)</option>
+                <option value="afternoon1">Early Afternoon (1:00 PM - 3:00 PM)</option>
+                <option value="afternoon2">Late Afternoon (4:00 PM - 6:00 PM)</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;"><i class="fas fa-gift"></i> Book & Reserve Party Room</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- TAB PANEL 5: SIGN WAIVERS -->
+    <div id="panel-revisions" class="dashboard-panel">
+      <div class="section-header" style="margin-bottom: 40px;">
+        <h2>Sign Safety Waivers</h2>
+        <p>All children require a signed liability and safety waiver to enter the play area.</p>
+      </div>
+
+      <div class="premium-card" id="waiver-form-card" style="padding: 40px; text-align: left; align-items: stretch; margin-bottom: 30px;">
+        <h3 class="card-title" style="align-self: center; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+          <i class="fas fa-file-signature" style="color: var(--accent-color);"></i> Liability & Safety Release Form
+        </h3>
+        
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 16px; text-align: center;">
+          You have <strong style="color: var(--danger);" id="waiver-pending-text">1 pending waiver</strong> for Mia Jenkins. Please sign below to unlock immediately.
+        </p>
+
+        <!-- Scrollable Waiver Text Box -->
+        <div style="background: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 16px; height: 150px; overflow-y: scroll; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); margin-bottom: 20px;">
+          <strong>JUNGLEJAMBOREE PLAYGROUND ACCIDENT WAIVER & RELEASE OF LIABILITY</strong><br><br>
+          1. I acknowledge that indoor play activities, slides, ball pits, and obstacle runs involve active motion and contain inherent risks of bumps, scrapes, or minor injuries.<br><br>
+          2. I agree that children must wear mandatory grip-socks at all times. No shoes or bare feet are allowed on the playground equipment.<br><br>
+          3. I certify that my children are physically fit to participate in soft play activities and that I (or designated guardian) will remain on-site at the facility to supervise them at all times.<br><br>
+          4. I hereby release JungleJamboree and its employees from any liability for standard accidental bumps or minor injuries resulting from active play.
+        </div>
+
+        <form id="waiver-signing-form" style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px;">
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">
+              <input type="checkbox" required style="width: 18px; height: 18px; accent-color: var(--accent-color);"> I agree to the mandatory grip-socks rules.
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">
+              <input type="checkbox" required style="width: 18px; height: 18px; accent-color: var(--accent-color);"> I agree to remain on-site to supervise my children.
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="waiver-signature">E-Signature (Type Full Legal Name) *</label>
+            <div class="attach-input-wrapper">
+              <input type="text" id="waiver-signature" required placeholder="Type James Lim to sign..." style="padding-right: 44px;">
+              <button type="button" class="attach-icon-btn" onclick="alert('Digital ID upload simulation triggered.')" title="Verify Identity">
+                <i class="fas fa-id-card"></i>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-check"></i> Sign & Authorize Waiver</button>
+        </form>
+      </div>
+
+      <!-- Signed Waivers Log -->
+      <div class="premium-card" style="text-align: left; align-items: stretch;">
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 20px;"><i class="fas fa-clipboard-check" style="color: var(--success);"></i> Signed Waivers History</h3>
+        
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; color: var(--text-color);">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color); color: var(--text-heading); font-weight: 500;">
+                <th style="padding: 12px 8px;">Child Name</th>
+                <th style="padding: 12px 8px;">Date Signed</th>
+                <th style="padding: 12px 8px;">Authorized Guardian</th>
+                <th style="padding: 12px 8px;">Status</th>
+              </tr>
+            </thead>
+            <tbody id="waivers-history-table">
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px 8px; font-weight: 600;">Leo Jenkins</td>
+                <td style="padding: 12px 8px;">May 12, 2026</td>
+                <td style="padding: 12px 8px;">James Lim</td>
+                <td style="padding: 12px 8px;"><span class="badge" style="background: rgba(16, 185, 129, 0.12); color: var(--success); font-size: 0.75rem; margin: 0;">ACTIVE</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color); display: none;" id="mia-waiver-row">
+                <td style="padding: 12px 8px; font-weight: 600;">Mia Jenkins</td>
+                <td style="padding: 12px 8px;" id="mia-waiver-date">-</td>
+                <td style="padding: 12px 8px;">James Lim</td>
+                <td style="padding: 12px 8px;"><span class="badge" style="background: rgba(16, 185, 129, 0.12); color: var(--success); font-size: 0.75rem; margin: 0;">ACTIVE</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB PANEL 6: VISIT HISTORY -->
+    <div id="panel-downloads" class="dashboard-panel">
+      <div class="section-header" style="margin-bottom: 30px;">
+        <h2>Visits & Receipts History</h2>
+        <p>Review your family's playground check-in history and download PDF invoices.</p>
+      </div>
+
+      <!-- Visit Metrics -->
+      <div class="stats-row" style="margin-bottom: 30px;">
+        <div class="stat-card" style="padding: 16px;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Total Play Hours</span>
+          <div class="stat-number" style="font-size: 1.75rem; margin: 4px 0;">28 hrs</div>
+          <span style="font-size: 0.7rem; color: var(--success);"><i class="fas fa-arrow-up"></i> Active child reward</span>
+        </div>
+        <div class="stat-card" style="padding: 16px;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Total Check-Ins</span>
+          <div class="stat-number" style="font-size: 1.75rem; margin: 4px 0;" id="history-total-visits">14</div>
+          <span style="font-size: 0.7rem; color: var(--text-muted);">This calendar year</span>
+        </div>
+        <div class="stat-card" style="padding: 16px;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Loyalty Points</span>
+          <div class="stat-number" style="font-size: 1.75rem; margin: 4px 0;">280</div>
+          <span style="font-size: 0.7rem; color: var(--accent-color);"><i class="fas fa-gift"></i> Redeem free drink</span>
+        </div>
+      </div>
+
+      <!-- Visits Table -->
+      <div class="premium-card" style="text-align: left; align-items: stretch;">
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 20px;"><i class="fas fa-history" style="color: var(--secondary-color);"></i> Recent Visit Logs</h3>
+        
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; color: var(--text-color);">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color); color: var(--text-heading); font-weight: 500;">
+                <th style="padding: 12px 8px;">Date</th>
+                <th style="padding: 12px 8px;">Play Type</th>
+                <th style="padding: 12px 8px;">Checked In Children</th>
+                <th style="padding: 12px 8px;">Amount Paid</th>
+                <th style="padding: 12px 8px; text-align: right;">Invoice</th>
+              </tr>
+            </thead>
+            <tbody id="visits-history-table">
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px 8px; font-weight: 600;">May 10, 2026</td>
+                <td style="padding: 12px 8px;">Weekday Open Play</td>
+                <td style="padding: 12px 8px;">Leo & Mia</td>
+                <td style="padding: 12px 8px;">Covered by VIP</td>
+                <td style="padding: 12px 8px; text-align: right;"><button class="btn btn-secondary download-sam-btn" data-design="visit-receipt" style="padding: 6px 12px; font-size: 0.8rem;"><i class="fas fa-download"></i> Receipt</button></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px 8px; font-weight: 600;">Apr 18, 2026</td>
+                <td style="padding: 12px 8px;">Weekend Open Play</td>
+                <td style="padding: 12px 8px;">Leo</td>
+                <td style="padding: 12px 8px;">$18.00</td>
+                <td style="padding: 12px 8px; text-align: right;"><button class="btn btn-secondary download-sam-btn" data-design="visit-receipt" style="padding: 6px 12px; font-size: 0.8rem;"><i class="fas fa-download"></i> Receipt</button></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px 8px; font-weight: 600;">Mar 15, 2026</td>
+                <td style="padding: 12px 8px;">Sensory Toddler Class</td>
+                <td style="padding: 12px 8px;">Mia</td>
+                <td style="padding: 12px 8px;">$12.00</td>
+                <td style="padding: 12px 8px; text-align: right;"><button class="btn btn-secondary download-sam-btn" data-design="visit-receipt" style="padding: 6px 12px; font-size: 0.8rem;"><i class="fas fa-download"></i> Receipt</button></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px 8px; font-weight: 600;">Feb 22, 2026</td>
+                <td style="padding: 12px 8px;">Weekday Open Play</td>
+                <td style="padding: 12px 8px;">Leo & Mia</td>
+                <td style="padding: 12px 8px;">Covered by VIP</td>
+                <td style="padding: 12px 8px; text-align: right;"><button class="btn btn-secondary download-sam-btn" data-design="visit-receipt" style="padding: 6px 12px; font-size: 0.8rem;"><i class="fas fa-download"></i> Receipt</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB PANEL 7: SETTINGS -->
+    <div id="panel-settings" class="dashboard-panel">
+      <div class="section-header">
+        <h2>Account Settings</h2>
+        <p>Update your email, password, and communication preferences.</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="premium-card" style="text-align: left; align-items: stretch;">
+          <h3 class="card-title"><i class="fas fa-bell"></i> Notifications</h3>
+          <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+            <span style="color: var(--text-muted);">Upcoming Party Reminders</span>
+            <input type="checkbox" checked style="width: 20px; height: 20px; accent-color: var(--accent-color);">
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+            <span style="color: var(--text-muted);">Special Offers & Events</span>
+            <input type="checkbox" checked style="width: 20px; height: 20px; accent-color: var(--accent-color);">
+          </div>
+        </div>
+
+        <div class="premium-card" style="text-align: left; align-items: stretch;">
+          <h3 class="card-title"><i class="fas fa-lock"></i> Security</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 15px 0;">Manage your password and connected social accounts.</p>
+          <button class="btn btn-secondary" style="width: 100%;">Change Password</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Overlay for sliding sidebar on mobile -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/dashboard.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

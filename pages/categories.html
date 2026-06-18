@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Areas | JungleJamboree</title>
+  <meta name="description" content="Explore our different play areas, party packages, and cafe menu at JungleJamboree.">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+
+  <style>
+    /* Desktop optimization for Technical Architecture Insights grid */
+    @media (min-width: 1200px) {
+      #blog-insights-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="logo-container" onclick="window.location.href='../index.html'">
+        <div class="logo-icon"><i class="fas fa-tree"></i></div>
+        <span class="logo-text">JungleJamboree</span>
+      </div>
+
+      <!-- Hamburger menu toggle -->
+      <button class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Center navigation menu options -->
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="home2.html" class="nav-link">Home 2</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="services.html" class="nav-link">Play Packages</a></li>
+          <li><a href="categories.html" class="nav-link active">Attractions</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+          <div class="footer-actions-row">
+            <button class="rtl-toggle">RTL</button>
+            <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+          </div>
+          <a href="login.html" class="btn btn-primary">Sign In</a>
+        </div>
+      </nav>
+
+      <!-- Right side headers elements -->
+      <div class="header-actions">
+        <button class="rtl-toggle" aria-label="Toggle Right to Left">RTL</button>
+        <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <a href="login.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="margin-top: var(--header-height);">
+
+    <!-- SECTION 1: FEATURED BLOG POST (HERO) -->
+    <section class="section hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge"></i> New Attraction</span>
+          <h1 class="hero-title" style="font-size: 2.5rem;">The <span>Volcano Slide</span> is Now Open!</h1>
+          <p class="hero-subtitle">Experience the thrill of our new 3-story indoor slide. Perfect for kids ages 5 and up.</p>
+          <div class="hero-buttons">
+            <a href="services.html" class="btn btn-primary">Get Day Passes</a>
+            <a href="#articles" class="btn btn-secondary">Explore All Areas</a>
+          </div>
+        </div>
+        <div class="hero-visual" style="display: flex; justify-content: center; align-items: center;">
+          <img src="https://funlandia.com/wp-content/uploads/2022/02/Funlandia-Volcano-Slide-Equipment.jpg" alt="Kids playing on an indoor playground slide" style="max-width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ARTICLES GRID -->
+    <section class="section" id="articles"
+      style="background: rgba(79, 70, 229, 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Park Attractions</h2>
+          <p>From toddler soft play to ninja courses, discover all the fun awaiting your family.</p>
+        </div>
+
+        <div class="card-grid" id="blog-insights-grid">
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTagQ6kVWxtwbIZVucUIs0_kkp98UA67gUP8sOZMBnJFXqWONGZ82z8L6U&s=10" alt="Toddler Area" class="card-img">
+            </div>
+            <div class="card-icon"><i class="fas fa-baby"></i></div>
+            <h3 class="card-title">Toddler Soft Play</h3>
+            <p class="card-description">A safe, enclosed space for children under 3 with soft mats, mini slides, and sensory boards.</p>
+          </div>
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://www.leos.fi/_next/image?url=https%3A%2F%2Fcms.leosplay.com%2Fwp-content%2Fuploads%2F2026%2F04%2F2ballpit-cover.png&w=3840&q=75" alt="Ball Pit" class="card-img">
+            </div>
+            <div class="card-icon"><i class="fas fa-circle"></i></div>
+            <h3 class="card-title">Mega Ball Pit</h3>
+            <p class="card-description">Dive into a sea of over 50,000 colorful balls featuring interactive projection games.</p>
+          </div>
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNDSBh0EeayUHhJqdMyig2va_01vc_oobxFEhDtluw6Vr1MvCLHbBXm9TU&s=10" alt="Ninja Course" class="card-img">
+            </div>
+            <div class="card-icon"><i class="fas fa-running"></i></div>
+            <h3 class="card-title">Ninja Warrior Course</h3>
+            <p class="card-description">Test your agility and strength on our challenging obstacle course. Recommended for ages 7+.</p>
+          </div>
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://www.chuckecheese.com/wp-content/uploads/2026/04/Spring-2026-PR-TrampolineZone.jpg" alt="Trampolines" class="card-img">
+            </div>
+            <div class="card-icon"><i class="fas fa-arrow-up"></i></div>
+            <h3 class="card-title">Jump Zone Trampolines</h3>
+            <p class="card-description">Bounce off the walls in our interconnected trampoline arena, complete with dodgeball courts.</p>
+          </div>
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://www.leosabenteuerpark.de/_next/image?url=https%3A%2F%2Fcms.leosplay.com%2Fwp-content%2Fuploads%2F2026%2F04%2Fjungle-slide-cover.png&w=3840&q=75" alt="Cafe" class="card-img">
+            </div>
+            <div class="card-icon"><i class="fas fa-coffee"></i></div>
+            <h3 class="card-title">Jungle Cafe</h3>
+            <p class="card-description">Relax with premium coffee and healthy snacks while the kids play. Free Wi-Fi included.</p>
+          </div>
+          <div class="premium-card">
+            <div class="card-img-container">
+              <img src="https://littleglitterskidsparty.com/wp-content/uploads/2024/06/WhatsApp-Image-2024-06-12-at-11.45.32-AM-2.jpeg" alt="Party Rooms" class="card-img">
+            </div>
+            <div class="card-icon"><i class="fas fa-birthday-cake"></i></div>
+            <h3 class="card-title">Private Party Rooms</h3>
+            <p class="card-description">Host the ultimate birthday bash in one of our 4 themed private celebration rooms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: FREQUENTLY ASKED QUESTIONS -->
+    <section class="section" style="background: rgba(79, 70, 229, 0.02); border-top: 1px solid var(--border-color);">
+      <div class="container" style="max-width: 800px; margin: 0 auto;">
+        <div class="section-header" style="margin: 0 0 40px 0;">
+          <h2>Frequently Asked Questions</h2>
+          <p>Quick answers to common questions about visiting JungleJamboree.</p>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h4>Do I need to sign a waiver?</h4>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Yes, all children must have a signed waiver from a parent or legal guardian before entering the play area. You can sign this online before your visit!</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h4>Are socks required?</h4>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Yes, for safety and hygiene, grip socks are required for all children playing on the equipment. Parents entering the play zone must also wear regular socks.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h4>Can I bring outside food?</h4>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Outside food and drinks are not permitted, except for a cake if you have booked a private birthday party room. We have a cafe with many healthy snack options!</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h4>What is the age limit?</h4>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Our playground is designed for children ages 1 to 12. We have a dedicated Toddler Town area for children under 4 to play safely away from bigger kids.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h4>Do adults have to pay?</h4>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              <p>No! Every child's admission includes up to two free adults. Additional adults are $5 each.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h4>Do you clean the equipment?</h4>
+              <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Absolutely. We use non-toxic, hospital-grade sanitizers on all surfaces multiple times a day, and run a deep clean with UV sanitation every night.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: BULLETIN NEWSLETTER SIGNUP -->
+    <section class="section">
+      <div class="container" style="max-width: 650px; text-align: center;">
+        <div class="section-header">
+          <h2>Join the Jungle Club Newsletter</h2>
+          <p>Get exclusive discounts, event invites, and updates on new attractions straight to your inbox.</p>
+        </div>
+
+        <div class="premium-card" style="padding: 40px; border-color: rgba(6, 182, 212, 0.2);">
+          <form id="consultation-form" style="width: 100%; display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; flex-direction: column; text-align: left;">
+              <input type="email" required placeholder="Enter your email address" class="form-input"
+                style="width: 100%; padding: 14px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.95rem; background: var(--bg-card); color: var(--text-heading); outline: none;">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i>
+              Subscribe for Discounts</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-container" style="margin-bottom: 20px;">
+            <div class="logo-icon"><i class="fas fa-tree"></i></div>
+            <span class="logo-text">JungleJamboree</span>
+          </div>
+          <p>The ultimate indoor playground experience for kids to explore, play, and celebrate in a safe environment.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-topic">
+          <h4>Play Packages</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Daily Passes</a></li>
+            <li><a href="services.html">VIP Memberships</a></li>
+            <li><a href="services.html">Birthday Parties</a></li>
+            <li><a href="services.html">Group Events</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-topic">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="dashboard.html">Parent Dashboard</a></li>
+            <li><a href="categories.html">Attractions</a></li>
+            <li><a href="contact.html">Safety Rules</a></li>
+            <li><a href="contact.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-topic">
+          <h4>Contact & Info</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-envelope"></i> hello@junglejamboree.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Austin, TX</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 JungleJamboree. All rights reserved.</p>
+        <div style="display: flex; gap: 24px;">
+          <a href="pages/404.html">Privacy Policy</a>
+          <a href="pages/404.html">SLA Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script tags -->
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+/* ==========================================================================
+   RTL.CSS
+   Styles for Right-to-Left (RTL) Layout support
+   ========================================================================== */
+
+html[dir="rtl"] {
+  /* Text Direction */
+  direction: rtl;
+  text-align: right;
+}
+
+/* Reverse core alignments */
+html[dir="rtl"] body {
+  text-align: right;
+}
+
+/* Header Reversals */
+html[dir="rtl"] .logo-container {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .logo-text {
+  letter-spacing: 0;
+}
+
+/* Let justify-content: space-between handle distribution, remove pushing margins */
+html[dir="rtl"] .main-nav {
+  margin: 0;
+}
+
+html[dir="rtl"] .header-actions {
+  margin: 0;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Footer Reversals */
+html[dir="rtl"] .footer-top {
+  direction: rtl;
+}
+
+html[dir="rtl"] .footer-brand .logo-container {
+  justify-content: flex-end;
+}
+
+html[dir="rtl"] .footer-topic h4::after {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .footer-links a:hover {
+  padding-left: 0;
+  padding-right: 6px;
+}
+
+html[dir="rtl"] .footer-contact li {
+  gap: 12px;
+}
+
+/* Hero Content alignment */
+html[dir="rtl"] .hero-content {
+  text-align: center;
+}
+
+html[dir="rtl"] .hero-title span {
+  display: inline-block;
+}
+
+html[dir="rtl"] .hero-buttons {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 1023px) {
+  html[dir="rtl"] .hero-content {
+    text-align: center;
+    align-items: center;
+  }
+  html[dir="rtl"] .hero-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  html[dir="rtl"] .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Section Header indicator line */
+html[dir="rtl"] .section-header h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Dashboard Layout RTL Reversals (Crucial!) */
+html[dir="rtl"] .dashboard-sidebar {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--border-color);
+  transform: translateX(100%);
+}
+
+html[dir="rtl"] .dashboard-sidebar.active {
+  transform: translateX(0);
+}
+
+@media (min-width: 1024px) {
+  html[dir="rtl"] .dashboard-sidebar {
+    transform: translateX(0);
+  }
+  html[dir="rtl"] .dashboard-main {
+    margin-left: 0;
+    margin-right: var(--sidebar-width);
+  }
+}
+
+html[dir="rtl"] .dashboard-header {
+  left: 0;
+  right: 0; /* Align perfectly on top */
+}
+
+@media (min-width: 1024px) {
+  html[dir="rtl"] .dashboard-header {
+    left: 0;
+    right: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
+}
+
+html[dir="rtl"] .sidebar-link i {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+html[dir="rtl"] .sidebar-link .badge-count {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Dashboard profile alignments */
+html[dir="rtl"] .header-profile {
+  flex-direction: row-reverse;
+}
+
+/* Auth Cards RTL fixes */
+html[dir="rtl"] .auth-container {
+  direction: rtl;
+}
+
+html[dir="rtl"] .auth-controls {
+  right: auto;
+  left: 20px;
+}
+
+html[dir="rtl"] .form-group label {
+  text-align: right;
+  display: block;
+}
+
+html[dir="rtl"] .remember-forgot {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .social-auth-btn {
+  flex-direction: row;
+}
+
+/* Interactive elements alignment */
+html[dir="rtl"] .form-group-row {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .calc-slider-group {
+  direction: ltr; /* Keeps numeric sliders sliding left to right for UX, but labeling is right-aligned */
+}
+
+html[dir="rtl"] .calc-slider-header {
+  direction: rtl;
+}
+
+html[dir="rtl"] .tab-btn i {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+/* Auth Pages RTL fixes for password visibility, eye icon, and punctuation */
+html[dir="rtl"] .toggle-password {
+  right: auto;
+  left: 16px;
+}
+
+html[dir="rtl"] .form-input {
+  padding-left: 44px !important;
+  padding-right: 16px !important;
+}
+
+html[dir="rtl"] .auth-card p {
+  direction: ltr;
+}
+
+/* Profile page RTL fixes */
+html[dir="rtl"] .profile-location i {
+  margin-right: 0;
+  margin-left: 4px;
+}
