@@ -26,7 +26,16 @@
   <header class="site-header">
     <div class="container header-container">
       <div class="logo-container" onclick="window.location.href='../index.html'">
-        <div class="logo-icon"><i class="fas fa-tree"></i></div>
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px; display: block;">
+            <path d="M3 12a2 2 0 1 1 0-.1M21 12a2 2 0 1 0 0-.1" />
+            <circle cx="12" cy="12" r="9" />
+            <circle cx="9.25" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+            <circle cx="14.75" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+            <path d="M9 14.5c1.5 1.5 4.5 1.5 6 0" />
+            <path d="M12 3a2 2 0 0 1 2-2" />
+          </svg>
+        </div>
         <span class="logo-text">JungleJamboree</span>
       </div>
 
@@ -51,15 +60,15 @@
             <button class="rtl-toggle">RTL</button>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
           </div>
-          <a href="login.html" class="btn btn-primary">Sign In</a>
+          <a href="login.html" class="btn btn-primary">Login</a>
         </div>
       </nav>
 
-      <!-- Right side headers elements -->
+      <!-- Right side headers elements (RTL, Theme, and Login buttons) -->
       <div class="header-actions">
         <button class="rtl-toggle" aria-label="Toggle Right to Left">RTL</button>
         <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
-        <a href="login.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Sign In</a>
+        <a href="login.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Login</a>
       </div>
     </div>
   </header>
@@ -75,7 +84,6 @@
           <p class="hero-subtitle">Have a question about our playground, want to book a party, or need help with your membership? Our friendly staff is here to help!</p>
           <div class="hero-buttons">
             <a href="#booking" class="btn btn-primary">Send a Message</a>
-            <a href="dashboard.html" class="btn btn-secondary">Parent Dashboard</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -161,7 +169,7 @@
         <div class="hero-grid">
           <div style="display: flex; flex-direction: column; gap: 24px;">
             <div class="premium-card" style="text-align: left; align-items: center; justify-content: flex-start; padding: 30px; flex-direction: row; gap: 20px;">
-              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0;"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; background: rgba(91, 33, 182, 0.1); color: var(--primary-color);"><i class="fas fa-map-marker-alt"></i></div>
               <div>
                 <h4 style="margin-bottom: 6px;">Our Location</h4>
                 <p style="font-size: 0.9rem; margin-bottom: 4px;">123 Safari Way, Fun City, TX</p>
@@ -169,7 +177,7 @@
               </div>
             </div>
             <div class="premium-card" style="text-align: left; align-items: center; justify-content: flex-start; padding: 30px; flex-direction: row; gap: 20px;">
-              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0;"><i class="fas fa-clock"></i></div>
+              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; background: rgba(236, 72, 153, 0.1); color: var(--secondary-color);"><i class="fas fa-clock"></i></div>
               <div>
                 <h4 style="margin-bottom: 6px;">Opening Hours</h4>
                 <p style="font-size: 0.9rem; margin-bottom: 4px;">Mon - Sun: 9:00 AM - 8:00 PM</p>
@@ -177,7 +185,7 @@
               </div>
             </div>
             <div class="premium-card" style="text-align: left; align-items: center; justify-content: flex-start; padding: 30px; flex-direction: row; gap: 20px;">
-              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0;"><i class="fas fa-phone"></i></div>
+              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; background: rgba(245, 158, 11, 0.1); color: var(--accent-color);"><i class="fas fa-phone"></i></div>
               <div>
                 <h4 style="margin-bottom: 6px;">Call Us</h4>
                 <p style="font-size: 0.9rem; margin-bottom: 4px;">(555) 123-4567</p>
@@ -195,6 +203,62 @@
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4.5: FREQUENTLY ASKED QUESTIONS -->
+    <section class="section faq-section" style="background: rgba(91, 33, 182, 0.01); border-top: 1px solid var(--border-color);">
+      <div class="container" style="max-width: 800px; margin: 0 auto;">
+        <div class="section-header">
+          <h2>Frequently Asked Questions</h2>
+          <p>Got questions about passes, rules, or parties? We have answers!</p>
+        </div>
+
+        <div class="faq-grid" style="display: flex; flex-direction: column; gap: 16px;">
+          <!-- FAQ 1 -->
+          <details class="premium-card" style="padding: 20px; text-align: left; align-items: stretch; cursor: pointer; border-left: 4px solid var(--primary-color);">
+            <summary style="font-family: var(--font-secondary); font-size: 1.15rem; font-weight: 580; color: var(--text-heading); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              Do I need to sign a safety waiver?
+              <span class="faq-icon" style="color: var(--primary-color);"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              Yes! All child participants must have a signed safety waiver from a parent or legal guardian before entering the soft play area. You can sign waivers online through our parent portal to save time at check-in.
+            </p>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details class="premium-card" style="padding: 20px; text-align: left; align-items: stretch; cursor: pointer; border-left: 4px solid var(--secondary-color);">
+            <summary style="font-family: var(--font-secondary); font-size: 1.15rem; font-weight: 580; color: var(--text-heading); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              What age groups is the playground suitable for?
+              <span class="faq-icon" style="color: var(--secondary-color);"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              JungleJamboree is designed for children ages 1 to 12. We have a dedicated "Toddler Jungle" area specifically engineered for toddlers under age 4 to play safely.
+            </p>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="premium-card" style="padding: 20px; text-align: left; align-items: stretch; cursor: pointer; border-left: 4px solid var(--accent-color);">
+            <summary style="font-family: var(--font-secondary); font-size: 1.15rem; font-weight: 580; color: var(--text-heading); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              Are grip play socks required?
+              <span class="faq-icon" style="color: var(--accent-color);"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              Yes, for safety and hygiene, grip-bottom socks are required for all children playing. You can bring your own or purchase premium Jamboree grip socks at the admission gate.
+            </p>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="premium-card" style="padding: 20px; text-align: left; align-items: stretch; cursor: pointer; border-left: 4px solid var(--primary-color);">
+            <summary style="font-family: var(--font-secondary); font-size: 1.15rem; font-weight: 580; color: var(--text-heading); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              Can we bring outside food and drinks?
+              <span class="faq-icon" style="color: var(--primary-color);"><i class="fas fa-chevron-down"></i></span>
+            </summary>
+            <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              Outside food and drinks are not allowed inside the playground, except for baby formula, baby food, or allergen-free food. However, our Jungle Cafe offers a variety of healthy snacks, pizzas, smoothies, and coffees.
+            </p>
+          </details>
         </div>
       </div>
     </section>
@@ -226,7 +290,16 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="logo-container" style="margin-bottom: 20px;">
-            <div class="logo-icon"><i class="fas fa-tree"></i></div>
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px; display: block;">
+                <path d="M3 12a2 2 0 1 1 0-.1M21 12a2 2 0 1 0 0-.1" />
+                <circle cx="12" cy="12" r="9" />
+                <circle cx="9.25" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+                <circle cx="14.75" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+                <path d="M9 14.5c1.5 1.5 4.5 1.5 6 0" />
+                <path d="M12 3a2 2 0 0 1 2-2" />
+              </svg>
+            </div>
             <span class="logo-text">JungleJamboree</span>
           </div>
           <p>The ultimate indoor playground experience for kids, featuring safe play zones, epic birthday parties, and relaxing parent lounges.</p>

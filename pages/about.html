@@ -26,7 +26,16 @@
   <header class="site-header">
     <div class="container header-container">
       <div class="logo-container" onclick="window.location.href='../index.html'">
-        <div class="logo-icon"><i class="fas fa-child"></i></div>
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px; display: block;">
+            <path d="M3 12a2 2 0 1 1 0-.1M21 12a2 2 0 1 0 0-.1" />
+            <circle cx="12" cy="12" r="9" />
+            <circle cx="9.25" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+            <circle cx="14.75" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+            <path d="M9 14.5c1.5 1.5 4.5 1.5 6 0" />
+            <path d="M12 3a2 2 0 0 1 2-2" />
+          </svg>
+        </div>
         <span class="logo-text">JungleJamboree</span>
       </div>
 
@@ -51,15 +60,15 @@
             <button class="rtl-toggle">RTL</button>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
           </div>
-          <a href="login.html" class="btn btn-primary">Sign In</a>
+          <a href="login.html" class="btn btn-primary">Login</a>
         </div>
       </nav>
 
-      <!-- Right side headers elements -->
+      <!-- Right side headers elements (RTL, Theme, and Login buttons) -->
       <div class="header-actions">
         <button class="rtl-toggle" aria-label="Toggle Right to Left">RTL</button>
         <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
-        <a href="login.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Sign In</a>
+        <a href="login.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Login</a>
       </div>
     </div>
   </header>
@@ -74,24 +83,10 @@
           <p class="hero-subtitle">Discover our passion for children's active learning, environmental safety, and our dedicated first-aid certified team.</p>
           <div class="hero-buttons">
             <a href="contact.html" class="btn btn-primary">Contact Safety Team</a>
-            <a href="services.html" class="btn btn-secondary">Explore Packages</a>
           </div>
         </div>
-    <div class="hero-visual">
-          <div class="serverless-graphic" style="border-color: var(--secondary-color);">
-            <div class="graphic-header" style="background: rgba(236, 72, 153, 0.1);">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-              <span class="graphic-title">safety-audit-overview.yaml</span>
-            </div>
-            <div class="graphic-content" style="font-family: var(--font-primary); font-size: 0.95rem; line-height: 1.8; color: var(--text-color);">
-              <strong style="color: var(--secondary-color);">Sanitization:</strong> Non-toxic botanical disinfectants<br>
-              <strong style="color: var(--secondary-color);">Monitoring:</strong> 100% secure gated gates & check-ins<br>
-              <strong style="color: var(--secondary-color);">Waivers:</strong> Digital records for quick entry limits<br>
-              <strong style="color: var(--secondary-color);">Training:</strong> Play supervisors CPR & First-Aid qualified
-            </div>
-          </div>
+        <div class="hero-visual">
+          <img src="https://kidsstoppress.com/wp-content/uploads/2021/09/1546607238.BestIndoorPlayAreasForKidsInNoida-Kidsstoppress-1.jpg" alt="Children's Indoor Soft Play Playground" style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); object-fit: cover; height: 320px; display: block;">
         </div>
   </div>
 </section>
@@ -187,7 +182,7 @@
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsmNNQjmaBFfpk6oZI6JiYOvJOInkcX3n8GbmPpumGh4c6cIgWovZjG5SK&s=10"
                 alt="Child Safety Certified" class="card-img">
             </div>
-            <div class="card-icon"><i class="fas fa-child"></i></div>
+            <div class="card-icon" style="background: rgba(91, 33, 182, 0.1); color: var(--primary-color);"><i class="fas fa-child"></i></div>
             <h3 class="card-title">Certified Play Safety Inspector</h3>
             <p class="card-description">Expert level credentials verifying mastery in playground safety, equipment
               standards, and child injury prevention.</p>
@@ -197,7 +192,7 @@
               <img src="https://www.lifepreservers.ca/cdn/shop/files/Emergency_Child_Care.jpg?v=1769111127"
                 alt="First Aid Certified" class="card-img">
             </div>
-            <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+            <div class="card-icon" style="background: rgba(236, 72, 153, 0.1); color: var(--secondary-color);"><i class="fas fa-heartbeat"></i></div>
             <h3 class="card-title">Advanced Pediatric First Aid</h3>
             <p class="card-description">Deep validation of emergency response protocols, child CPR, and rapid 
               medical assistance procedures.</p>
@@ -207,7 +202,7 @@
               <img src="https://www.abtglobal.com/sites/default/files/2026-04/earlychildhood-gettyimages-1458807880.jpg"
                 alt="Early Childhood Education" class="card-img">
             </div>
-            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-color);"><i class="fas fa-graduation-cap"></i></div>
             <h3 class="card-title">Early Childhood Development</h3>
             <p class="card-description">Credentials in creating engaging, age-appropriate play structures that foster
               cognitive and motor skills.</p>
@@ -230,7 +225,7 @@
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOziKOK_H7RJafI2huGsI38zGcXWo6pgTwmCoLLnE7bjfhVNe0Lqe7V0T_&s=10"
                 alt="Easy check in" class="card-img">
             </div>
-            <div class="card-icon">1</div>
+            <div class="card-icon" style="background: rgba(91, 33, 182, 0.1); color: var(--primary-color);">1</div>
             <h3 class="card-title">Easy Online Booking</h3>
             <p class="card-description">Purchase entry passes, sign waivers, and book party rooms online to skip 
               the lines when you arrive.</p>
@@ -240,7 +235,7 @@
               <img src="https://www.peachprime.in/wp-content/uploads/2025/01/5.1_13_11zon-1.webp"
                 alt="Safe play zones" class="card-img">
             </div>
-            <div class="card-icon">2</div>
+            <div class="card-icon" style="background: rgba(236, 72, 153, 0.1); color: var(--secondary-color);">2</div>
             <h3 class="card-title">Safe & Clean Play Zones</h3>
             <p class="card-description">We maintain strict cleanliness protocols and age-separated play areas, 
               ensuring a safe environment for everyone.</p>
@@ -250,7 +245,7 @@
               <img src="https://cdn.gravity-global.com/production/large_ACTIVE_Family_Pass_0a8ad9227e.png"
                 alt="Happy families" class="card-img">
             </div>
-            <div class="card-icon">3</div>
+            <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-color);">3</div>
             <h3 class="card-title">Unforgettable Fun</h3>
             <p class="card-description">Watch your kids explore multi-level structures, giant slides, and 
               interactive games while you relax in our parent lounge.</p>
@@ -267,7 +262,16 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="logo-container" style="margin-bottom: 20px;">
-            <div class="logo-icon"><i class="fas fa-tree"></i></div>
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px; display: block;">
+                <path d="M3 12a2 2 0 1 1 0-.1M21 12a2 2 0 1 0 0-.1" />
+                <circle cx="12" cy="12" r="9" />
+                <circle cx="9.25" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+                <circle cx="14.75" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+                <path d="M9 14.5c1.5 1.5 4.5 1.5 6 0" />
+                <path d="M12 3a2 2 0 0 1 2-2" />
+              </svg>
+            </div>
             <span class="logo-text">JungleJamboree</span>
           </div>
           <p>The ultimate indoor playground experience for kids, featuring safe play zones, epic birthday parties, and relaxing parent lounges.</p>

@@ -572,7 +572,16 @@
   <!-- FIXED LEFT SIDEBAR (Toggles in Mobile, always visible in Desktop) -->
   <aside class="dashboard-sidebar">
     <div class="sidebar-brand" onclick="window.location.href='../index.html'">
-      <div class="logo-icon"><i class="fas fa-tree"></i></div>
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px; display: block;">
+          <path d="M3 12a2 2 0 1 1 0-.1M21 12a2 2 0 1 0 0-.1" />
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="9.25" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+          <circle cx="14.75" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+          <path d="M9 14.5c1.5 1.5 4.5 1.5 6 0" />
+          <path d="M12 3a2 2 0 0 1 2-2" />
+        </svg>
+      </div>
       <span class="logo-text">JungleJamboree</span>
     </div>
 
@@ -633,24 +642,24 @@
       <!-- Centered Cards Row -->
       <div class="stats-row">
         <div class="stat-card">
-          <div class="card-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--success);"><i
+          <div class="card-icon" style="background: rgba(91, 33, 182, 0.1); color: var(--primary-color);"><i
               class="fas fa-ticket-alt"></i></div>
           <div class="stat-label">Available Passes</div>
           <div class="stat-number" id="widget-pass-count">4</div>
-          <div class="stat-sub" style="color: var(--success);"><i class="fas fa-check-circle"></i> Ready to use</div>
+          <div class="stat-sub" style="color: var(--primary-color);"><i class="fas fa-check-circle"></i> Ready to use</div>
         </div>
 
         <div class="stat-card">
-          <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);"><i
+          <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-color);"><i
               class="fas fa-file-signature"></i></div>
           <div class="stat-label">Missing Waivers</div>
           <div class="stat-number" id="widget-waiver-count">1</div>
-          <div class="stat-sub" id="widget-waiver-sub" style="color: var(--warning);"><i class="fas fa-exclamation-triangle"></i> Action required
+          <div class="stat-sub" id="widget-waiver-sub" style="color: var(--accent-color);"><i class="fas fa-exclamation-triangle"></i> Action required
           </div>
         </div>
 
         <div class="stat-card">
-          <div class="card-icon" style="background: rgba(79, 70, 229, 0.1); color: var(--secondary-color);"><i
+          <div class="card-icon" style="background: rgba(236, 72, 153, 0.1); color: var(--secondary-color);"><i
               class="fas fa-birthday-cake"></i></div>
           <div class="stat-label">Upcoming Parties</div>
           <div class="stat-number" id="widget-party-count">0</div>
@@ -658,11 +667,11 @@
         </div>
 
         <div class="stat-card">
-          <div class="card-icon" style="background: rgba(6, 182, 212, 0.1); color: var(--accent-color);"><i
+          <div class="card-icon" style="background: rgba(91, 33, 182, 0.1); color: var(--primary-color);"><i
               class="fas fa-star"></i></div>
           <div class="stat-label">Membership Status</div>
           <div class="stat-number">VIP</div>
-          <div class="stat-sub" style="color: var(--accent-color);"><i class="fas fa-crown"></i> Active until Dec 31</div>
+          <div class="stat-sub" style="color: var(--primary-color);"><i class="fas fa-crown"></i> Active until Dec 31</div>
         </div>
       </div>
 

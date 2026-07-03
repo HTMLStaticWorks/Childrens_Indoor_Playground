@@ -297,8 +297,8 @@ a {
   width: 64px;
   height: 64px;
   border-radius: var(--radius-md);
-  background: rgba(6, 182, 212, 0.1);
-  color: var(--accent-color);
+  background: rgba(91, 33, 182, 0.1);
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;

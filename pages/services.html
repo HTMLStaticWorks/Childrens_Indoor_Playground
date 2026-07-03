@@ -26,7 +26,16 @@
   <header class="site-header">
     <div class="container header-container">
       <div class="logo-container" onclick="window.location.href='../index.html'">
-        <div class="logo-icon"><i class="fas fa-tree"></i></div>
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px; display: block;">
+            <path d="M3 12a2 2 0 1 1 0-.1M21 12a2 2 0 1 0 0-.1" />
+            <circle cx="12" cy="12" r="9" />
+            <circle cx="9.25" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+            <circle cx="14.75" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+            <path d="M9 14.5c1.5 1.5 4.5 1.5 6 0" />
+            <path d="M12 3a2 2 0 0 1 2-2" />
+          </svg>
+        </div>
         <span class="logo-text">JungleJamboree</span>
       </div>
 
@@ -51,15 +60,15 @@
             <button class="rtl-toggle">RTL</button>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
           </div>
-          <a href="login.html" class="btn btn-primary">Sign In</a>
+          <a href="login.html" class="btn btn-primary">Login</a>
         </div>
       </nav>
 
-      <!-- Right side headers elements -->
+      <!-- Right side headers elements (RTL, Theme, and Login buttons) -->
       <div class="header-actions">
         <button class="rtl-toggle" aria-label="Toggle Right to Left">RTL</button>
         <button class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
-        <a href="login.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Sign In</a>
+        <a href="login.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Login</a>
       </div>
     </div>
   </header>
@@ -75,7 +84,6 @@
           <p class="hero-subtitle">Explore our flexible entry passes, awesome birthday party packages, and unlimited memberships designed to keep the smiles going all year round.</p>
           <div class="hero-buttons">
             <a href="#packages" class="btn btn-primary">View Packages</a>
-            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -99,7 +107,7 @@
               <img src="https://www.bssgurukulam.com/theme/img/gallery/facility/8_2021-07-0205:06:00.jpg"
                 alt="Open play area" class="card-img">
             </div>
-            <div class="card-icon"><i class="fas fa-running"></i></div>
+            <div class="card-icon" style="background: rgba(91, 33, 182, 0.1); color: var(--primary-color);"><i class="fas fa-running"></i></div>
             <h3 class="card-title">Open Play</h3>
             <p class="card-description">Drop-in hours for unrestricted fun. Access to our giant slides, ball pits, and obstacle courses for all ages.</p>
           </div>
@@ -108,7 +116,7 @@
               <img src="https://activeforlife.com/img/large/2015/06/birthday-party-celebration.jpg"
                 alt="Birthday party" class="card-img">
             </div>
-            <div class="card-icon"><i class="fas fa-birthday-cake"></i></div>
+            <div class="card-icon" style="background: rgba(236, 72, 153, 0.1); color: var(--secondary-color);"><i class="fas fa-birthday-cake"></i></div>
             <h3 class="card-title">Birthday Parties</h3>
             <p class="card-description">Private party rooms, dedicated hosts, pizza, and unlimited play time. We handle the mess, you enjoy the memory!</p>
           </div>
@@ -117,7 +125,7 @@
               <img src="https://www.cosumnescsd.gov/ImageRepository/Document?documentID=29263"
                 alt="Toddler time" class="card-img">
             </div>
-            <div class="card-icon"><i class="fas fa-baby"></i></div>
+            <div class="card-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-color);"><i class="fas fa-baby"></i></div>
             <h3 class="card-title">Toddler Time</h3>
             <p class="card-description">Special quiet hours exclusively for children under 4. Soft play zones and sensory-friendly environments.</p>
           </div>
@@ -140,7 +148,7 @@
               <img src="https://i.pinimg.com/474x/23/8e/4e/238e4e3a654876d132199a0bdb779f8f.jpg"
                 alt="Single Day Pass" class="card-img">
             </div>
-            <span class="badge" style="background: rgba(6, 182, 212, 0.12); color: var(--accent-color);">Day Pass</span>
+            <span class="badge" style="background: rgba(245, 158, 11, 0.12); color: var(--accent-color);">Day Pass</span>
             <h3 class="card-title" style="font-size: 2.25rem; margin: 15px 0;">$18</h3>
             <p class="card-description" style="font-weight: 600;">One-time 2 Hour Play Session</p>
             <ul
@@ -159,7 +167,7 @@
               <img src="https://images.squarespace-cdn.com/content/v1/66bcdc08b688e806507713af/0b7c0d3d-617c-4023-a747-f3a5ced76c9b/thurs.+oct+3%2840%29.png"
                 alt="Monthly Membership" class="card-img">
             </div>
-            <span class="badge" style="background: rgba(79, 70, 229, 0.12); color: var(--secondary-color);">Unlimited VIP</span>
+            <span class="badge" style="background: rgba(236, 72, 153, 0.12); color: var(--secondary-color);">Unlimited VIP</span>
             <h3 class="card-title" style="font-size: 2.25rem; margin: 15px 0;">$45<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></h3>
             <p class="card-description" style="font-weight: 600;">Monthly Unlimited Access</p>
             <ul
@@ -178,7 +186,7 @@
               <img src="https://partyone.com/img/category_landing/artists/packages.webp"
                 alt="Party Package" class="card-img">
             </div>
-            <span class="badge" style="background: rgba(15, 23, 42, 0.12); color: var(--primary-color);">Party Package</span>
+            <span class="badge" style="background: rgba(91, 33, 182, 0.12); color: var(--primary-color);">Party Package</span>
             <h3 class="card-title" style="font-size: 2.25rem; margin: 15px 0;">$350+</h3>
             <p class="card-description" style="font-weight: 600;">Epic Birthday Celebrations</p>
             <ul
@@ -202,7 +210,16 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="logo-container" style="margin-bottom: 20px;">
-            <div class="logo-icon"><i class="fas fa-tree"></i></div>
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px; display: block;">
+                <path d="M3 12a2 2 0 1 1 0-.1M21 12a2 2 0 1 0 0-.1" />
+                <circle cx="12" cy="12" r="9" />
+                <circle cx="9.25" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+                <circle cx="14.75" cy="11.25" r="1.25" fill="currentColor" stroke="none" />
+                <path d="M9 14.5c1.5 1.5 4.5 1.5 6 0" />
+                <path d="M12 3a2 2 0 0 1 2-2" />
+              </svg>
+            </div>
             <span class="logo-text">JungleJamboree</span>
           </div>
           <p>The ultimate indoor playground experience for kids, featuring safe play zones, epic birthday parties, and relaxing parent lounges.</p>
